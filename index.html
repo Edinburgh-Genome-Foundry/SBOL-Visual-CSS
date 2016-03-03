@@ -8,23 +8,32 @@
 # Visual SBOL CSS
 
 This library provides provides CSS classes to easily display schematic DNA sequences
-in the Visual SBOL standard.
+in the Visual SBOL standard:
 
-Unzip the `visual-sbol-css` in your project and link the css to your html document:
+<div class="sbol-visual centered">
+    <div class="sbolv promoter"></div>
+    <div class="sbolv cds"></div>
+    <div class="sbolv terminator"></div>
+</div>
+
+
+### Usage
+
+Download the source and place the `sbol-visual-css` folder in your project and link the css to your html document:
 
 ```
-<link  rel="stylesheet" href="visual-sbol-css/visual-sbol.css"></link>
+<link  rel="stylesheet" href="sbol-visual-css/sbol-visual.css"></link>
 ```
 
-Then in the body write a `sbol-visual` div with different `sbol-elements`:
+Then in the body write a `sbol-visual` div with different `sbolvs`:
 
 ```
 <div class="sbol-visual">
-    <div class="sbol-element promoter"> P1 </div>
-    <div class="sbol-element ribosome-entry-site"> rbs 1 </div>
-    <div class="sbol-element cds"><em>acs</em></div>
-    <div class="sbol-element terminator"></div>
-    <div class="sbol-element insulator"></div>
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds"><em>acs</em></div>
+    <div class="sbolv terminator"></div>
+    <div class="sbolv insulator"></div>
 </div>
 ```
 
@@ -32,168 +41,185 @@ Then in the body write a `sbol-visual` div with different `sbol-elements`:
 They will be displayed as follows:
 
 <div class="sbol-visual">
-    <div class="sbol-element promoter"> P1 </div>
-    <div class="sbol-element ribosome-entry-site"> rbs 1 </div>
-    <div class="sbol-element cds"><em>acs</em></div>
-    <div class="sbol-element terminator"></div>
-    <div class="sbol-element insulator"></div>
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds"><em>acs</em></div>
+    <div class="sbolv terminator"></div>
+    <div class="sbolv insulator"></div>
 </div>
 
-## Auto-wrapping
+### Auto-wrapping
 
-Constructs with many symbols will be automatically wrapped
+When the number of `sbolv` elements increases, they are nicely wrapped to the line:
 
 <div class="sbol-visual">
-    <div class="sbol-element promoter"> P1 </div>
-    <div class="sbol-element ribosome-entry-site"> rbs 1 </div>
-    <div class="sbol-element cds"><em>acs</em></div>
-    <div class="sbol-element terminator"></div>
-    <div class="sbol-element insulator"></div>
-    <div class="sbol-element promoter"> P1 </div>
-    <div class="sbol-element ribosome-entry-site"> rbs 1 </div>
-    <div class="sbol-element cds"><em>acs</em></div>
-    <div class="sbol-element terminator"></div>
-    <div class="sbol-element insulator"></div>
-    <div class="sbol-element promoter"> P1 </div>
-    <div class="sbol-element ribosome-entry-site"> rbs 1 </div>
-    <div class="sbol-element cds"><em>acs</em></div>
-    <div class="sbol-element terminator"></div>
-    <div class="sbol-element insulator"></div>
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds"><em>acs</em></div>
+    <div class="sbolv terminator"></div>
+    <div class="sbolv insulator"></div>
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds"><em>acs</em></div>
+    <div class="sbolv terminator"></div>
+    <div class="sbolv insulator"></div>
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds"><em>acs</em></div>
+    <div class="sbolv terminator"></div>
+    <div class="sbolv insulator"></div>
 </div>
 
-## Adaptive width
+### Adaptive width
 
+Put any html you want into the `sbolv` divs, the SBOL symbols will stretch to make space:
 ```
 <div class="sbol-visual">
-    <div class="sbol-element promoter"> P1 </div>
-    <div class="sbol-element ribosome-entry-site"> rbs 1 </div>
-    <div class="sbol-element cds"><em>acs</em></div>
-    <div class="sbol-element terminator"></div>
-    <div class="sbol-element unsulator"></div>
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds">some longer gene name</div>
+    <div class="sbolv terminator"></div>
 </div>
 ```
 
+<div class="sbol-visual">
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds">some longer gene name</div>
+    <div class="sbolv terminator"></div>
+</div>
 
-## Supported symbols
-The supported classes for `sbol-element` are: promoter, five-prime-overhang, primer-binding-site, terminator, ribonuclease-site,
-assembly-scar,restriction-enzyme-recognition-site, three-prime-overhang,
-origin-of-replication, insulator, cds, user-defined, operator,
-three-prime-sticky-restriction-site, blunt-restriction-site,
-ribosome-entry-site, protease-site, five-prime-sticky-restriction-site,
-rna-stability-element, signature, protein-stability-element.
-
-# Usage
-
-
-
-Then place divs with class `sbol-element` into a div of class
-
-
-
-
+If the caption is longer than `sbolv.max-width` (default is `200px`) the caption will be wrapped:
 
 <div class="sbol-visual">
-<div class="sbol-element promoter">
-    <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-       data-placement="bottom" title="Codes for bla">
-        p-<em>acs</em>
-    </a>
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds">some really very long caption that you could have made shorter</div>
+    <div class="sbolv terminator"></div>
 </div>
-<div class="sbol-element cds">
-    <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-       data-placement="bottom" title="Codes for bla">
-        <em>acs</em>
-    </a>
-</div>
-<div class="sbol-element terminator">
-    <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-       data-placement="bottom" title="Codes for bla">
-        term01
-    </a>
-</div>
-<div class="sbol-element promoter">
-    <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-       data-placement="bottom" title="Codes for bla">
-        p-<em>crp</em>
-    </a>
-</div>
-<div class="sbol-element cds">
-    <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-       data-placement="bottom" title="Codes for bla">
-        Unknown gene to identify
-    </a>
-</div>
-<div class="sbol-element terminator">
-    <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-       data-placement="bottom" title="Codes for bla">
-        Gene1
-    </a>
-</div>
-<div class="sbol-visual">
-    <div class="sbol-element promoter">
-        <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-           data-placement="bottom" title="Codes for bla">
-            p-<em>acs</em>
-        </a>
-    </div>
-    <div class="sbol-element cds">
-        <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-           data-placement="bottom" title="Codes for bla">
-            <em>acs</em>
-        </a>
-    </div>
-    <div class="sbol-element terminator">
-        <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-           data-placement="bottom" title="Codes for bla">
-            term01
-        </a>
-    </div>
-    <div class="sbol-element promoter">
-        <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-           data-placement="bottom" title="Codes for bla">
-            p-<em>crp</em>
-        </a>
-    </div>
-    <div class="sbol-element cds">
-        <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-           data-placement="bottom" title="Codes for bla">
-            Unknown gene to identify
-        </a>
-    </div>
-    <div class="sbol-element terminator">
-        <a class="with-tooltip" href="http://www.google.com/" data-toggle="tooltip"
-           data-placement="bottom" title="Codes for bla">
-            Gene1
-        </a>
-    </div>
 
+### Centering the symbols
+
+An easy way to center the symbols is to add `centered` to the `sbol-visual` div:
+```
+<div class="sbol-visual centered">
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv cds">bla</div>
+    <div class="sbolv terminator">t2</div>
 </div>
+```
+
+<div class="sbol-visual centered">
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv cds">bla</div>
+    <div class="sbolv terminator">t2</div>
 </div>
+
+Beware that all lines will be centered, even if they contain only a single symbol.
+
+
+### Changing the symbol sizes
+
+Since the symbols are vector graphics they will render well at any size.
+The size of the symbols is driven by the height of the `sbolv` divs.
+
+To get smaller symbols you would first add CSS class `small` to `sbol-visual`:
+
+```
+.sbol-visual.small .sbolv {
+    height: 80px; /* default is 120px */
+    min-width: 35px;  /* default is 50px */
+}
+```
+
+Then in hour html you add `small` to your div's classes:
+
+```
+<div class="sbol-visual small centered">
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv cds">bla</div>
+    <div class="sbolv terminator">t2</div>
+</div>
+```
+
+<div class="sbol-visual centered small">
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv cds">bla</div>
+    <div class="sbolv terminator">t2</div>
+</div>
+
+<style>
+.sbol-visual.small .sbolv {
+    height: 80px;
+    min-width: 35px;
+}
+</style>
+
+### Notes
+
+For the moment there is no easy way to change the color of the symbols - apart
+from modifying the SVG files
+
+### Contribute
+
+SBOL-visual
+
+### Reference
+
+The supported classes for `sbolv` are in alphabetical order:
+
+- `blunt-restriction-site`
+- `cds`
+- `five-prime-overhang`
+- `five-prime-sticky-restriction-site`
+- `insulator`
+- `primer-binding-site`
+- `origin-of-replication`
+- `operator`
+- `promoter`
+- `protease-site`
+- `protein-stability-element`
+- `restriction-enzyme-recognition-site`
+- `ribonuclease-site`
+- `ribosome-entry-site`
+- `rna-stability-element`
+- `signature`
+- `terminator`
+- `three-prime-overhang`
+- `three-prime-sticky-restriction-site`
+- `user-defined`
+
+
+
+<a href="https://github.com/zulko">
+    <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1000; margin: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+</a>
 
 </xmp>
 
 <script  src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
-<link  rel="stylesheet" href="visual-sbol-css/visual-sbol.css"></link>
+<link  rel="stylesheet" href="sbol-visual-css/sbol-visual.css"></link>
 
 <style language="css" type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
 body{
-
-    width:95%;
-    max-width: 800px;
-    margin:auto;
 }
 
 #content {
     font-family: "Raleway";
     font-size: 16px;
-    max-width: 800px;
-
+    max-width: 700px;
 }
 
 code, pre {
     font-size:16px;
+}
+
+.sbol-visual.big .sbolv {
+    height: 150px;
+    min-width: 60px;
 }
 
 </style>

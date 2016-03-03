@@ -1,0 +1,50 @@
+.sbol-visual {
+    padding-bottom:3px;
+    padding-left:3px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-wrap: wrap;
+}
+
+.sbol-visual.centered {
+    justify-content: center;
+}
+
+
+.sbolv {
+    font-size: 12px;
+    line-height:14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height:120px;
+    min-width:50px;
+    max-width:200px;
+    text-align:center;
+    background-image: url("SVG/user-defined.svg");
+    background-size: auto 85%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.sbolv.promoter { background-image: url("SVG/promoter.svg");}
+.sbolv.five-prime-overhang { background-image: url("SVG/five-prime-overhang.svg");}
+.sbolv.primer-binding-site { background-image: url("SVG/primer-binding-site.svg");}
+.sbolv.terminator { background-image: url("SVG/terminator.svg");}
+.sbolv.ribonuclease-site { background-image: url("SVG/ribonuclease-site.svg");}
+.sbolv.assembly-scar { background-image: url("SVG/assembly-scar.svg");}
+.sbolv.restriction-enzyme-recognition-site { background-image: url("SVG/restriction-enzyme-recognition-site.svg");}
+.sbolv.three-prime-overhang { background-image: url("SVG/three-prime-overhang.svg");}
+.sbolv.origin-of-replication { background-image: url("SVG/origin-of-replication.svg");}
+.sbolv.insulator { background-image: url("SVG/insulator.svg");}
+.sbolv.cds { background-image: url("SVG/cds.svg");}
+.sbolv.user-defined { background-image: url("SVG/user-defined.svg");}
+.sbolv.operator { background-image: url("SVG/operator.svg");}
+.sbolv.three-prime-sticky-restriction-site { background-image: url("SVG/three-prime-sticky-restriction-site.svg");}
+.sbolv.blunt-restriction-site { background-image: url("SVG/blunt-restriction-site.svg");}
+.sbolv.ribosome-entry-site { background-image: url("SVG/ribosome-entry-site.svg");}
+.sbolv.protease-site { background-image: url("SVG/protease-site.svg");}
+.sbolv.five-prime-sticky-restriction-site { background-image: url("SVG/five-prime-sticky-restriction-site.svg");}
+.sbolv.rna-stability-element { background-image: url("SVG/rna-stability-element.svg");}
+.sbolv.signature { background-image: url("SVG/signature.svg");}
+.sbolv.protein-stability-element { background-image: url("SVG/protein-stability-element.svg");}
