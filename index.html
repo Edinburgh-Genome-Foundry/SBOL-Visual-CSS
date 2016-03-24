@@ -1,28 +1,30 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 
-<title>Visual SBOL CSS</title>
+<title>SBOL Visual CSS</title>
 
-<xmp theme="united" style="display:none;">
+<xmp theme="simplex" style="display:none;">
 
-# Visual SBOL CSS
+# SBOL Visual CSS
 
 This library provides provides CSS classes to easily display schematic DNA sequences
-in the Visual SBOL standard:
+in the Visual SBOL standard like this one:
 
 <div class="sbol-visual centered">
-    <div class="sbolv promoter"></div>
-    <div class="sbolv cds"></div>
-    <div class="sbolv terminator"></div>
+    <div class="sbolv promoter">p1</div>
+    <div class="sbolv cds">lac</div>
+    <div class="sbolv terminator">terminator</div>
 </div>
 
 
-### Usage
+## Usage
 
 Download the source and place the `sbol-visual-css` folder in your project and link the css to your html document:
 
 ```
-<link  rel="stylesheet" href="sbol-visual-css/sbol-visual.css"></link>
+<link rel="stylesheet" href="sbol-visual-css/sbol-visual.css">
+</link>
 ```
 
 Then in the body write a `sbol-visual` div with different `sbolvs`:
@@ -48,7 +50,7 @@ They will be displayed as follows:
     <div class="sbolv insulator"></div>
 </div>
 
-### Auto-wrapping
+## Auto-wrapping
 
 When the number of `sbolv` elements increases, they are nicely wrapped to the line:
 
@@ -70,11 +72,31 @@ When the number of `sbolv` elements increases, they are nicely wrapped to the li
     <div class="sbolv insulator"></div>
 </div>
 
-### Adaptive width
+
+## Centering the symbols
+
+An easy way to center the symbols is to add `centered` to the `sbol-visual` div.
+Beware that all lines will be centered, even if they contain only a single symbol (which can happen at the end of a line wrap).
+
+```
+<div class="sbol-visual centered">
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv cds">bla</div>
+    <div class="sbolv terminator">t2</div>
+</div>
+```
+
+<div class="sbol-visual centered">
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv cds">bla</div>
+    <div class="sbolv terminator">t2</div>
+</div>
+
+## Adaptive width
 
 Put any html you want into the `sbolv` divs, the SBOL symbols will stretch to make space:
 ```
-<div class="sbol-visual">
+<div class="sbol-visual centered">
     <div class="sbolv promoter"> P1 </div>
     <div class="sbolv ribosome-entry-site"> rbs 1 </div>
     <div class="sbolv cds">some longer gene name</div>
@@ -82,7 +104,7 @@ Put any html you want into the `sbolv` divs, the SBOL symbols will stretch to ma
 </div>
 ```
 
-<div class="sbol-visual">
+<div class="sbol-visual centered">
     <div class="sbolv promoter"> P1 </div>
     <div class="sbolv ribosome-entry-site"> rbs 1 </div>
     <div class="sbolv cds">some longer gene name</div>
@@ -91,34 +113,17 @@ Put any html you want into the `sbolv` divs, the SBOL symbols will stretch to ma
 
 If the caption is longer than `sbolv.max-width` (default is `200px`) the caption will be wrapped:
 
-<div class="sbol-visual">
+<div class="sbol-visual centered">
     <div class="sbolv promoter"> P1 </div>
     <div class="sbolv ribosome-entry-site"> rbs 1 </div>
     <div class="sbolv cds">some really very long caption that you could have made shorter</div>
     <div class="sbolv terminator"></div>
 </div>
 
-### Centering the symbols
-
-An easy way to center the symbols is to add `centered` to the `sbol-visual` div:
-```
-<div class="sbol-visual centered">
-    <div class="sbolv promoter"> P1 </div>
-    <div class="sbolv cds">bla</div>
-    <div class="sbolv terminator">t2</div>
-</div>
-```
-
-<div class="sbol-visual centered">
-    <div class="sbolv promoter"> P1 </div>
-    <div class="sbolv cds">bla</div>
-    <div class="sbolv terminator">t2</div>
-</div>
-
-Beware that all lines will be centered, even if they contain only a single symbol.
 
 
-### Changing the symbol sizes
+
+## Changing the symbols' size
 
 Since the symbols are vector graphics they will render well at any size.
 The size of the symbols is driven by the height of the `sbolv` divs.
@@ -155,40 +160,94 @@ Then in hour html you add `small` to your div's classes:
 }
 </style>
 
-### Notes
+## Inline symbols
+
+Inline symbols use a `span` and the `inline` class:
+
+```
+To make an expression unit you need
+a promoter (<span class="sbolv inline promoter"></span>)
+a CDS (<span class="sbolv inline cds"></span>)
+and a terminator (<span class="sbolv inline terminator"></span>).
+
+The final result looks like this:
+<span class="sbol-visual inline">
+    <span class="sbolv promoter"></span>
+    <span class="sbolv cds"></span>
+    <span class="sbolv terminator"></span>
+</span>.
+```
+
+To make an expression unit you need
+a promoter (<span class="sbolv inline promoter"></span>)
+a CDS (<span class="sbolv inline cds"></span>)
+and a terminator (<span class="sbolv inline terminator"></span>).
+
+The final result looks like this:
+<span class="sbol-visual inline">
+    <span class="sbolv promoter"></span>
+    <span class="sbolv cds"></span>
+    <span class="sbolv terminator"></span>
+</span>.
+
+## Changing the color of the symbols
 
 For the moment there is no easy way to change the color of the symbols - apart
-from modifying the SVG files
+from modifying the SVG files. However it is possible to invert all colors of the
+`sbolv` elements with the `inverted` class. The symbols and caption appear then white.
 
-### Contribute
+```
+<div style="background:black; padding-top:20px;">
+    <div class="sbol-visual centered inverted">
+        <div class="sbolv promoter"> P1 </div>
+        <div class="sbolv cds">bla</div>
+        <div class="sbolv terminator">t2</div>
+    </div>
+</div>
+```
+<div style="background:black; padding-top:20px;">
+    <div class="sbol-visual centered inverted">
+        <div class="sbolv promoter"> P1 </div>
+        <div class="sbolv cds">bla</div>
+        <div class="sbolv terminator">t2</div>
+    </div>
+</div>
 
-SBOL-visual
+## Contribute
 
-### Reference
+SBOL-visual CSS was originally written at the Edinburgh Genome Foundry by [Zulko](https://github.com/Zulko).
+The code is released on [Github]() under the MIT Licence (Copyright Edinburgh Genome Foundry), everyone is welcome to contribute.
 
-The supported classes for `sbolv` are in alphabetical order:
 
-- `blunt-restriction-site`
-- `cds`
-- `five-prime-overhang`
-- `five-prime-sticky-restriction-site`
-- `insulator`
-- `primer-binding-site`
-- `origin-of-replication`
-- `operator`
-- `promoter`
-- `protease-site`
-- `protein-stability-element`
-- `restriction-enzyme-recognition-site`
-- `ribonuclease-site`
-- `ribosome-entry-site`
-- `rna-stability-element`
-- `signature`
-- `terminator`
-- `three-prime-overhang`
-- `three-prime-sticky-restriction-site`
-- `user-defined`
+## Reference
 
+Here are the different `sbolv` classes supported, in alphabetical order:
+<table>
+<tr>
+  <th>`sbolv` class</th>
+  <th>Symbol</th>
+</tr>
+<tr><td>`blunt-restriction-site`</td><td><div class="sbolv blunt-restriction-site"></div></td></tr>
+<tr><td>`cds`</td><td><div class="sbolv cds"></div></td></tr>
+<tr><td>`five-prime-overhang`</td><td><div class="sbolv five-prime-overhang"></div></td></tr>
+<tr><td>`five-prime-sticky-restriction-site`</td><td><div class="sbolv five-prime-sticky-restriction-site"></div></td></tr>
+<tr><td>`insulator`</td><td><div class="sbolv insulator"></div></td></tr>
+<tr><td>`primer-binding-site`</td><td><div class="sbolv primer-binding-site"></div></td></tr>
+<tr><td>`origin-of-replication`</td><td><div class="sbolv origin-of-replication"></div></td></tr>
+<tr><td>`operator`</td><td><div class="sbolv operator"></div></td></tr>
+<tr><td>`promoter`</td><td><div class="sbolv promoter"></div></td></tr>
+<tr><td>`protease-site`</td><td><div class="sbolv protease-site"></div></td></tr>
+<tr><td>`protein-stability-element`</td><td><div class="sbolv protein-stability-element"></div></td></tr>
+<tr><td>`restriction-enzyme-recognition-site`</td><td><div class="sbolv restriction-enzyme-recognition-site"></div></td></tr>
+<tr><td>`ribonuclease-site`</td><td><div class="sbolv ribonuclease-site"></div></td></tr>
+<tr><td>`ribosome-entry-site`</td><td><div class="sbolv ribosome-entry-site"></div></td></tr>
+<tr><td>`rna-stability-element`</td><td><div class="sbolv rna-stability-element"></div></td></tr>
+<tr><td>`signature`</td><td><div class="sbolv signature"></div></td></tr>
+<tr><td>`terminator`</td><td><div class="sbolv terminator"></div></td></tr>
+<tr><td>`three-prime-overhang`</td><td><div class="sbolv three-prime-overhang"></div></td></tr>
+<tr><td>`three-prime-sticky-restriction-site`</td><td><div class="sbolv three-prime-sticky-restriction-site"></div></td></tr>
+<tr><td>`user-defined`</td><td><div class="sbolv user-defined"></div></td></tr>
+</table>
 
 
 <a href="https://github.com/zulko">
@@ -220,6 +279,15 @@ code, pre {
 .sbol-visual.big .sbolv {
     height: 150px;
     min-width: 60px;
+}
+
+table {
+    margin:auto;
+}
+
+th, td {
+    text-align: center !important;
+    vertical-align: middle !important;
 }
 
 </style>

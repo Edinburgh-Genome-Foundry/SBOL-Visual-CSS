@@ -27,6 +27,34 @@
     background-position: bottom;
 }
 
+.sbol-visual.inline {
+    display: inline;
+}
+
+.sbol-visual.inline .sbolv {
+    vertical-align: middle;
+    font-size: 2em;
+    background-size: auto 90%;
+    background-position: 30% auto;
+
+}
+
+.sbolv.inline {
+    vertical-align: middle;
+    font-size: 2em;
+    background-size: auto 90%;
+    background-position: 30% auto;
+
+}
+
+.sbolv.inverted {
+	filter: invert(100%);
+}
+.sbol-visual.inverted .sbolv {
+	filter: invert(100%);
+}
+
+
 .sbolv.promoter { background-image: url("SVG/promoter.svg");}
 .sbolv.five-prime-overhang { background-image: url("SVG/five-prime-overhang.svg");}
 .sbolv.primer-binding-site { background-image: url("SVG/primer-binding-site.svg");}
