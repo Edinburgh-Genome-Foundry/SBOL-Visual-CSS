@@ -1,6 +1,5 @@
 .sbol-visual {
     padding-bottom:3px;
-    padding-left:3px;
     display: flex;
     justify-content: left;
     align-items: left;
@@ -62,6 +61,18 @@
     filter: invert(100%);
 }
 
+.sbol-visual .combinatorial {
+    outline: 2px dotted black;
+    margin-left:5px;
+    margin-right:5px;
+    margin-bottom:8px;
+    height:100%;
+
+}
+
+.sbol-visual .combinatorial .sbol-visual {
+    text-align: center;
+}
 
 .sbolv.promoter { background-image: url("SVG/promoter.svg");}
 .sbolv.five-prime-overhang { background-image: url("SVG/five-prime-overhang.svg");}

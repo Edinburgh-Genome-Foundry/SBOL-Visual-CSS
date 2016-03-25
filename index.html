@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html lang="en">
  <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 
 <title>SBOL Visual CSS</title>
@@ -8,8 +8,8 @@
 
 # SBOL Visual CSS
 
-This library provides provides CSS classes to easily display schematic DNA sequences
-in the Visual SBOL standard like this one:
+SBOL Visual CSS is a pure-CSS library to easily display schematic DNA sequences
+in the Visual SBOL standard such as this one:
 
 <div class="sbol-visual centered">
     <div class="sbolv promoter">p1</div>
@@ -17,10 +17,44 @@ in the Visual SBOL standard like this one:
     <div class="sbolv terminator">terminator</div>
 </div>
 
+While very simple (currently 90 lines of CSS !) it is versatile enough to serve
+as a generic SBOL visualizer for databases, web articles, etc.
+Its features include inline SBOL (for instance
+<span class="sbol-visual inline">
+    <span class="sbolv promoter"></span>
+    <span class="sbolv cds"></span>
+    <span class="sbolv terminator"></span>
+</span>
+) and combinatorial designs:
+
+<div class="sbol-visual centered small">
+    <div class="sbolv insulator"></div>
+    <div class='combinatorial'>
+        <div class="sbol-visual">
+            <div class="sbolv promoter"></div>
+            <div class="sbolv cds"></div>
+            <div class="sbolv terminator"></div>
+        </div>
+        <div class="sbol-visual">
+            <div class="sbolv promoter"></div>
+            <div class="sbolv cds"></div>
+            <div class="sbolv terminator"></div>
+        </div>
+        <div class="sbolv user-defined">(bridge)</div>
+    </div>
+    <div class="sbolv promoter"></div>
+    <div class='combinatorial'>
+        <div class="sbolv cds"></div>
+        <div class="sbolv cds"></div>
+    </div>
+    <div class="sbolv terminator"></div>
+</div>
+
+For an example of SBOL Visual CSS in action, see [this assembly editor](examples/part_selector.html).
 
 ## Basic usage
 
-Download the source and place the `sbol-visual-css` folder in your project and link the css to your html document:
+Download the source amd link `sbol-visual.css` to your html document:
 
 ```
 <link rel="stylesheet" href="sbol-visual-css/sbol-visual.css">
@@ -39,7 +73,6 @@ Then in the body write a `sbol-visual` div with different `sbolvs`:
 </div>
 ```
 
-
 They will be displayed as follows:
 
 <div class="sbol-visual">
@@ -49,8 +82,6 @@ They will be displayed as follows:
     <div class="sbolv terminator"></div>
     <div class="sbolv insulator"></div>
 </div>
-
-## Auto-wrapping
 
 When the number of `sbolv` elements increases, they are nicely wrapped to the line:
 
@@ -71,7 +102,6 @@ When the number of `sbolv` elements increases, they are nicely wrapped to the li
     <div class="sbolv terminator"></div>
     <div class="sbolv insulator"></div>
 </div>
-
 
 ## Centering the symbols
 
@@ -121,8 +151,6 @@ If the caption is longer than `sbolv.max-width` (default is `200px`) the caption
 </div>
 
 
-
-
 ## Changing the symbols' size
 
 Since the symbols are vector graphics they will render well at any size.
@@ -159,6 +187,91 @@ Then in hour html you add `small` to your div's classes:
     min-width: 35px;
 }
 </style>
+
+
+## Combinatorial designs
+
+Combinatorial designs (where several possibilities are given for some regions of the design) can be represented by grouping several symbols inside a div with class `combinatorial`.
+```
+<div class="sbol-visual centered small">
+    <div class="sbolv promoter">p1</div>
+    <div class='combinatorial'>
+        <div class="sbolv cds">gfp-mut2</div>
+        <div class="sbolv cds">gfp-mut3</div>
+        <div class="sbolv cds">yfp</div>
+    </div>
+    <div class='combinatorial'>
+        <div class="sbolv terminator">term1</div>
+        <div class="sbolv terminator">term2</div>
+    </div>
+    <div class="sbolv insulator">insulator</div>
+</div>
+```
+<div class="sbol-visual centered small">
+    <div class="sbolv promoter">p1</div>
+    <div class='combinatorial'>
+        <div class="sbolv cds">gfp-mut2</div>
+        <div class="sbolv cds">gfp-mut3</div>
+        <div class="sbolv cds">yfp</div>
+    </div>
+    <div class='combinatorial'>
+        <div class="sbolv terminator">term1</div>
+        <div class="sbolv terminator">term2</div>
+    </div>
+    <div class="sbolv insulator">insulator</div>
+</div>
+
+You can also insert a `sbol-visual` div inside a `combinatorial` div to make more complex combinations:
+
+```
+<div class="sbol-visual centered small">
+    <div class="sbolv insulator"></div>
+    <div class='combinatorial'>
+        <div class="sbol-visual">
+            <div class="sbolv promoter"></div>
+            <div class="sbolv cds"></div>
+            <div class="sbolv terminator"></div>
+        </div>
+        <div class="sbol-visual">
+            <div class="sbolv promoter"></div>
+            <div class="sbolv cds"></div>
+            <div class="sbolv terminator"></div>
+        </div>
+        <div class="sbolv user-defined">(bridge)</div>
+    </div>
+    <div class="sbolv promoter"></div>
+    <div class='combinatorial'>
+        <div class="sbolv cds"></div>
+        <div class="sbolv cds"></div>
+    </div>
+    <div class="sbolv terminator"></div>
+</div>
+```
+
+<div class="sbol-visual centered small">
+    <div class="sbolv insulator"></div>
+    <div class='combinatorial'>
+        <div class="sbol-visual">
+            <div class="sbolv promoter"></div>
+            <div class="sbolv cds"></div>
+            <div class="sbolv terminator"></div>
+        </div>
+        <div class="sbol-visual">
+            <div class="sbolv promoter"></div>
+            <div class="sbolv cds"></div>
+            <div class="sbolv terminator"></div>
+        </div>
+        <div class="sbolv user-defined">(bridge)</div>
+    </div>
+    <div class="sbolv promoter"></div>
+    <div class='combinatorial'>
+        <div class="sbolv cds"></div>
+        <div class="sbolv cds"></div>
+    </div>
+    <div class="sbolv terminator"></div>
+</div>
+
+
 
 ## Inline symbols
 
@@ -263,6 +376,11 @@ Here are the different `sbolv` classes supported, in alphabetical order:
 <style language="css" type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
+h1 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom:30px
+}
 body{
 }
 
