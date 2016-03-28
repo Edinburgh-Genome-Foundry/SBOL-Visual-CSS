@@ -23,14 +23,17 @@
 
     <p>
     This example demonstrates a DNA assembly editor using the library <a href="../index.html">SBOL Visual
-    CSS</a> for SBOL symbols visualization.
+    CSS</a> for SBOL symbols visualization. (The in-text parts suggestion is powered by <a href="http://ichord.github.io/At.js/">At.js</a>)
     </p>
+
+    <h3>Usage</h3>
     <p>
     In the window below, type "?" to activate the suggestion of
-    new parts (make sure there is a space before the "?"). The symbol
+    new parts (<b>make sure there is a space before the "?"</b>). The symbol
     in front of each part indicates its type (promoter, cds, etc.) and the check/cross
     could indicate for instance the availability of the part in your fridge. You can search parts by name, and select a part with Enter.
     </p>
+
 
     <p>
     Use a semi-colon (;) to separate the different slots. To specify
@@ -42,6 +45,8 @@
     coma-separated format.
     </p>
 
+    <h3>Try it !</h3>
+
     <div id="main">
       <div id="editable" class="inputor" contentEditable="true">
 
@@ -52,7 +57,7 @@
      <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline cds"></span>bla</span></span>,
      <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline cds"></span>ble</span></span>,
      <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline cds"></span>bli</span></span>;
-     <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline terminator"></span>t1</span></span>;
+     <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline terminator"></span>t1</span></span>;&nbsp;
 
       </div>
       <button id="render-button" onclick="render()" class="btn btn-primary">Render</button>
