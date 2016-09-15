@@ -1,255 +1,296 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta http-equiv="x-ua-compatible" content="IE=Edge"/>
-  <title>Part selector</title>
 
-  <link rel="stylesheet" href="../sbol-visual-css/sbol-visual.css" />
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-  <script type="text/javascript" src="http://ichord.github.io/Caret.js/src/jquery.caret.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
-  <script type="text/javascript" src="https://cdn.rawgit.com/ichord/At.js/master/dist/js/jquery.atwho.js"></script>
-  <link rel="stylesheet" href="https://cdn.rawgit.com/ichord/At.js/master/dist/css/jquery.atwho.css" />
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+<head>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <title>Part selector</title>
+
+    <link rel="stylesheet" href="../sbol-visual-css/sbol-visual.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="http://ichord.github.io/Caret.js/src/jquery.caret.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdn.rawgit.com/ichord/At.js/master/dist/js/jquery.atwho.js"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/ichord/At.js/master/dist/css/jquery.atwho.css" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 
 <body>
-  <div class="container wrapper">
-    <header>
-      <h1>Assembly editor</h1>
-    </header>
+    <div class="container wrapper">
+        <header>
+            <h1>Assembly editor</h1>
+        </header>
 
-    <p>
-    This example demonstrates a DNA assembly editor using the library <a href="../index.html">SBOL Visual
+        <p>
+            This example demonstrates a DNA assembly editor using the library <a href="../index.html">SBOL Visual
     CSS</a> for SBOL symbols visualization. (The in-text parts suggestion is powered by <a href="http://ichord.github.io/At.js/">At.js</a>)
-    </p>
+        </p>
 
-    <h3>Usage</h3>
-    <p>
-    In the window below, type "?" to activate the suggestion of
-    new parts (<b>make sure there is a space before the "?"</b>). The symbol
-    in front of each part indicates its type (promoter, cds, etc.) and the check/cross
-    could indicate for instance the availability of the part in your fridge. You can search parts by name, and select a part with Enter.
-    </p>
+        <h3>Usage</h3>
+        <p>
+            In the window below, type "?" to activate the suggestion of new parts (<b>make sure there is a space before the "?"</b>). The symbol in front of each part indicates its type (promoter, cds, etc.) and the check/cross could indicate for instance
+            the availability of the part in your fridge. You can search parts by name, and select a part with Enter.
+        </p>
 
 
-    <p>
-    Use a semi-colon (;) to separate the different slots. To specify
-    several parts for one slot (to define combinatrorial assemblies), separate them with a coma (,).
+        <p>
+            Use a semi-colon (;) to separate the different slots. To specify several parts for one slot (to define combinatrorial assemblies), separate them with a coma (,). Click on the "render" to transform your design in a full SBOL Visual CSS visualization. Note
+            that you can copy the content of the text-box to export your design in a coma-separated format.
+        </p>
 
-    Click on the "render" to transform your design in a full SBOL Visual CSS visualization.
+        <h3>Try it !</h3>
 
-    Note that you can copy the content of the text-box to export your design in a
-    coma-separated format.
-    </p>
+        <div id="main">
+            <div id="editable" class="inputor" contentEditable="true">
 
-    <h3>Try it !</h3>
+                <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline insulator"></span>insulator</span>
+                </span>;
+                <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline restriction-enzyme-recognition-site"></span>EcoRI</span>
+                </span>;
+                <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline promoter"></span>p1</span>
+                </span>,
+                <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline promoter"></span>p2</span>
+                </span>;
+                <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline cds"></span>bla</span>
+                </span>,
+                <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline cds"></span>ble</span>
+                </span>,
+                <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline cds"></span>bli</span>
+                </span>;
+                <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline terminator"></span>t1</span>
+                </span>;&nbsp;
 
-    <div id="main">
-      <div id="editable" class="inputor" contentEditable="true">
+            </div>
+            <button id="render-button" onclick="render()" class="btn btn-primary">Render</button>
 
-     <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline insulator"></span>insulator</span></span>;
-     <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline restriction-enzyme-recognition-site"></span>EcoRI</span></span>;
-     <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline promoter"></span>p1</span></span>,
-     <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline promoter"></span>p2</span></span>;
-     <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline cds"></span>bla</span></span>,
-     <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline cds"></span>ble</span></span>,
-     <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline cds"></span>bli</span></span>;
-     <span data-atwho-at-query="?" class="atwho-inserted"><span class="part-span"><span class="sbolv inline terminator"></span>t1</span></span>;&nbsp;
-
-      </div>
-      <button id="render-button" onclick="render()" class="btn btn-primary">Render</button>
-
-<div id="rendering-div"></div>
+            <div id="rendering-div"></div>
+        </div>
     </div>
-   </div>
 </body>
 
 
 <script type="text/javascript">
-$(function(){
-  $.fn.atwho.debug = true
-  var parts = [
-      {"name": "prom1", "type": "promoter", "fa-icon":"check"},
-      {"name": "prom2", "type": "promoter", "fa-icon":"check"},
-      {"name": "prom3", "type": "promoter", "fa-icon":"check"},
-      {"name": "gfp-mut2", "type": "cds", "fa-icon":"check"},
-      {"name": "gfp-mut3", "type": "cds", "fa-icon":"times"},
-      {"name": "yfp", "type": "cds", "fa-icon":"times"},
-      {"name": "t5", "type": "terminator", "fa-icon":"check"},
-      {"name": "tR2D2", "type": "terminator", "fa-icon":"check"},
-      {"name": "tC6PO", "type": "terminator", "fa-icon":"check"},
-      {"name": "insulator", "type": "insulator", "fa-icon":"check"}
-  ]
-  var at_config = {
-    at: "?",
-    data: parts,
-    headerTpl: '<div class="atwho-header">Parts in the database</div>',
-    insertTpl: '<span class="part-span"><span class="sbolv inline ${type}"></span>${name}</span>',
-    displayTpl: "<li><td><span class='fa fa-${fa-icon}'></span><span class='sbolv inline ${type}'></span>${name}</li>",
-    limit: 200
-  };
+    $(function() {
+        $.fn.atwho.debug = true
+        var parts = [{
+            "name": "prom1",
+            "type": "promoter",
+            "fa-icon": "check"
+        }, {
+            "name": "prom2",
+            "type": "promoter",
+            "fa-icon": "check"
+        }, {
+            "name": "prom3",
+            "type": "promoter",
+            "fa-icon": "check"
+        }, {
+            "name": "gfp-mut2",
+            "type": "cds",
+            "fa-icon": "check"
+        }, {
+            "name": "gfp-mut3",
+            "type": "cds",
+            "fa-icon": "times"
+        }, {
+            "name": "yfp",
+            "type": "cds",
+            "fa-icon": "times"
+        }, {
+            "name": "t5",
+            "type": "terminator",
+            "fa-icon": "check"
+        }, {
+            "name": "tR2D2",
+            "type": "terminator",
+            "fa-icon": "check"
+        }, {
+            "name": "tC6PO",
+            "type": "terminator",
+            "fa-icon": "check"
+        }, {
+            "name": "insulator",
+            "type": "insulator",
+            "fa-icon": "check"
+        }]
+        var at_config = {
+            at: "?",
+            data: parts,
+            headerTpl: '<div class="atwho-header">Parts in the database</div>',
+            insertTpl: '<span class="part-span"><span class="sbolv inline ${type}"></span>${name}</span>',
+            displayTpl: "<li><td><span class='fa fa-${fa-icon}'></span><span class='sbolv inline ${type}'></span>${name}</li>",
+            limit: 200
+        };
 
-  $('#editable').atwho(at_config);
-})
+        $('#editable').atwho(at_config);
+    })
 
-sanitize = function(input) {
-	var output = input.replace(/<script[^>]*?>.*?<\/script>/gi, '').
-				 replace(/<[\/\!]*?[^<>]*?>/gi, '').
-				 replace(/<style[^>]*?>.*?<\/style>/gi, '').
-				 replace(/<![\s\S]*?--[ \t\n\r]*>/gi, '');
-    return output;
-};
+    sanitize = function(input) {
+        var output = input.replace(/<script[^>]*?>.*?<\/script>/gi, '').
+        replace(/<[\/\!]*?[^<>]*?>/gi, '').
+        replace(/<style[^>]*?>.*?<\/style>/gi, '').
+        replace(/<![\s\S]*?--[ \t\n\r]*>/gi, '');
+        return output;
+    };
 
-function render() {
-    var str = document.getElementById("editable").innerHTML;
-    var slots = str.split(";");
-    var rendering = document.getElementById("rendering-div")
-    var content = "";
-    part_to_sbol = function (part) {
+    function render() {
+        var str = document.getElementById("editable").innerHTML;
+        var slots = str.split(";");
+        var rendering = document.getElementById("rendering-div")
+        var content = "";
+        part_to_sbol = function(part) {
 
-        var part_type = part.match(/sbolv inline (\S+)"/);
-        if (part_type != null) {
-             part_type = part_type[1];
-             var part_name = sanitize(part);
-             return "<div class='sbolv part_type'>part_name</div>".replace("part_type", part_type).replace("part_name", part_name)
-        } else {
-            return "";
+            var part_type = part.match(/sbolv inline (\S+)"/);
+            if (part_type != null) {
+                part_type = part_type[1];
+                var part_name = sanitize(part);
+                return "<div class='sbolv part_type'>part_name</div>".replace("part_type", part_type).replace("part_name", part_name)
+            } else {
+                return "";
+            }
         }
+
+        slots.map(function(slot) {
+            parts = slot.split(",")
+            console.log(parts)
+            console.log(parts.length)
+            if (parts.length == 1) {
+                content = content + part_to_sbol(parts[0])
+            } else {
+                subcontent = ""
+                parts.map(function(part) {
+                    console.log("lol", part)
+                    subcontent = subcontent + part_to_sbol(part)
+                })
+                content = content + "<div class='combinatorial'>" + subcontent + "</div>"
+
+            }
+        });
+        document.getElementById("rendering-div").innerHTML = "<div class='sbol-visual centered small'>" + content + "</div>"
     }
 
-    slots.map( function (slot) {
-        parts = slot.split(",")
-        console.log(parts)
-        console.log(parts.length)
-        if (parts.length == 1) {
-            content = content + part_to_sbol(parts[0])
-        } else {
-            subcontent = ""
-            parts.map( function (part) {
-                console.log("lol", part)
-                subcontent = subcontent + part_to_sbol(part)
-            })
-            content = content + "<div class='combinatorial'>" + subcontent + "</div>"
-
-        }
-    });
-    document.getElementById("rendering-div").innerHTML = "<div class='sbol-visual centered small'>"+content+"</div>"
-    //document.getElementById("rendering").innerHTML = part_names;
-}
-
-window.onload(document.getElementById("render-button").click());
-
+    window.onload(document.getElementById("render-button").click());
 </script>
 
 
-  <style type="text/css">
-
+<style type="text/css">
     .fa-check {
-      color: green;
+        color: green;
     }
 
     .fa-times {
-      color: red;
+        color: red;
     }
 
-    html, body {
-      background:#F9F9F9;
-      padding: 0;
-      margin: 0;
-      font: 14px/1.6 "Lucida Grande", "Helvetica", sans-serif;
-      color: #333;
+    html,
+    body {
+        background: #F9F9F9;
+        padding: 0;
+        margin: 0;
+        font: 14px/1.6 "Lucida Grande", "Helvetica", sans-serif;
+        color: #333;
     }
+
     p {
-         font-size: 16px;
+        font-size: 16px;
     }
 
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: 'PT Sans', sans-serif;
+        line-height: 40px;
+        color: inherit;
+        font-weight: bold;
+        margin: 10px 0;
+        text-rendering: optimizelegibility;
+    }
 
-    h1,h2,h3,h4 {
-      font-family: 'PT Sans', sans-serif;
-      line-height: 40px;
-      color: inherit;
-      font-weight: bold;
-      margin: 10px 0;
-      text-rendering: optimizelegibility;
+    h2,
+    h3 {
+        color: gray;
     }
-    h2,h3 {
-      color: gray;
-    }
+
     strong {
-      color: #424242;
+        color: #424242;
     }
 
     a {
-      color: #4183C4;
-      text-decoration: none;
+        color: #4183C4;
+        text-decoration: none;
     }
+
     a:hover {
-      text-decoration: underline;
+        text-decoration: underline;
     }
+
     .wrapper {
-      width: 750px;
-      padding: 20px;
-      margin: 0 auto;
+        width: 750px;
+        padding: 20px;
+        margin: 0 auto;
     }
+
     header {
-      margin-top:70px;
-      margin-bottom: 50px;
+        margin-top: 70px;
+        margin-bottom: 50px;
     }
+
     header h1 {
-      text-align: center;
-      font-size: 75px;
+        text-align: center;
+        font-size: 75px;
     }
+
     h1 i {
-      color: rgb(182, 180, 180);
-      font-style: normal;
-      font-weight: normal;
+        color: rgb(182, 180, 180);
+        font-style: normal;
+        font-weight: normal;
     }
 
     .inputor {
-      height: 160px;
-      width: 90%;
-      border: 1px solid #dadada;
-      border-radius: 4px;
-      padding: 5px 8px;
-      outline: 0 none;
-      margin: 10px auto;
-      background: white;
-      overflow-y: scroll;
-      line-height: 40px;
+        height: 160px;
+        width: 90%;
+        border: 1px solid #dadada;
+        border-radius: 4px;
+        padding: 5px 8px;
+        outline: 0 none;
+        margin: 10px auto;
+        background: white;
+        overflow-y: scroll;
+        line-height: 40px;
     }
+
     .inputor:focus {
-      border: 1px solid rgb(6, 150, 247);
+        border: 1px solid rgb(6, 150, 247);
     }
 
     ul.doc {
-      list-style:none;
+        list-style: none;
     }
+
     ul.doc li {
-      display:inline-block;
-      margin: 0 10px;
+        display: inline-block;
+        margin: 0 10px;
     }
 
     footer {
-      margin: 30px 0;
+        margin: 30px 0;
     }
 
     .part-span {
         background: #e6f3ff;
         padding: 4px;
         border: 0.3px solid grey;
-        white-space:nowrap;
-        margin-left:5px;
-        margin-right:5px;
+        white-space: nowrap;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 
     .sbol-visual.small .sbolv {
         height: 80px;
         min-width: 35px;
     }
-
-  </style>
+</style>
 
 </html>

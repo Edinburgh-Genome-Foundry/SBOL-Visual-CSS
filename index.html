@@ -9,7 +9,7 @@
 # SBOL Visual CSS
 
 SBOL Visual CSS is a pure-CSS library to easily display schematic DNA sequences
-in the Visual SBOL standard such as this one:
+in the Visual SBOL standard:
 
 <div class="sbol-visual centered">
     <div class="sbolv promoter">p1</div>
@@ -17,8 +17,11 @@ in the Visual SBOL standard such as this one:
     <div class="sbolv terminator">terminator</div>
 </div>
 
-While very simple (currently 90 lines of CSS !) it is versatile enough to serve
+While very light, SBOL Visual CSS is versatile enough to serve
 as a generic SBOL visualizer for databases, web articles, etc.
+It is distributed as <a href="dist/sbol-visual-standalone.css" download target="_blank">a self-contained CSS file</a>
+(20kb) and is therefore fit for embedding into HTML emails.
+
 Its features include inline SBOL (for instance
 <span class="sbol-visual inline">
     <span class="sbolv promoter"></span>
@@ -52,16 +55,21 @@ Its features include inline SBOL (for instance
 
 For an example of SBOL Visual CSS in action, see [this assembly editor](examples/assembly_editor.html).
 
+## Contribute !
+
+SBOL-visual CSS was originally written at the <a href="http://genomefoundry.org/">Edinburgh Genome Foundry</a> by [Zulko](https://github.com/Zulko).
+The code is released on [Github]() under the MIT Licence (Copyright Edinburgh Genome Foundry), everyone is welcome to contribute.
+
+
 ## Basic usage
 
-Download the source amd link `sbol-visual.css` to your html document:
+Link <a href="dist/sbol-visual-standalone.css" download target="_blank">sbol-visual-standalone.css</a> to your html document:
 
 ```
-<link rel="stylesheet" href="sbol-visual-css/sbol-visual.css">
-</link>
+<link rel="stylesheet" href="sbol-visual-standalone.css"></link>
 ```
 
-Then in the body write a `sbol-visual` div with different `sbolvs`:
+Then in the body write a `sbol-visual` div with different `sbolv` elements:
 
 ```
 <div class="sbol-visual">
@@ -326,10 +334,6 @@ from modifying the SVG files. However it is possible to invert all colors of the
     </div>
 </div>
 
-## Contribute
-
-SBOL-visual CSS was originally written at the Edinburgh Genome Foundry by [Zulko](https://github.com/Zulko).
-The code is released on [Github]() under the MIT Licence (Copyright Edinburgh Genome Foundry), everyone is welcome to contribute.
 
 
 ## Reference
@@ -371,7 +375,7 @@ Here are the different `sbolv` classes supported, in alphabetical order:
 </xmp>
 
 <script  src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
-<link  rel="stylesheet" href="sbol-visual-css/sbol-visual.css"></link>
+<link  rel="stylesheet" href="dist/sbol-visual-standalone.css"></link>
 
 <style language="css" type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Raleway);
@@ -408,6 +412,12 @@ th, td {
     vertical-align: middle !important;
 }
 
+#headline {
+    padding-left:50px;
+    background: url("EGF-logo.svg") no-repeat;
+    background-size: 40px;
+
+}
 </style>
 
 
