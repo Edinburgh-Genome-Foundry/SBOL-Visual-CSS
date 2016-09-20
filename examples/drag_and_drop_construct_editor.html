@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <title>SBOL Drag-and-Drop editor</title>
+    <link rel="stylesheet" href="../dist/sbol-visual-standalone.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' rel='stylesheet' type='text/css'>
+</head>
+
+
+<body>
+    <div class="container wrapper">
+        <header>
+            <h1>Drag&Drop editor</h1>
+        </header>
+
+        <p>
+            This example demonstrates a drag-and-drop editor using the library <a href="../index.html">SBOL Visual
+    CSS</a> for SBOL symbols visualization. The drag-and-drop mechanism is powered by the <a href="http://ichord.github.io/At.js/">Dragula</a> library
+        </p>
+
+        <h3>Usage</h3>
+        <p>
+            Drag the genetic parts of the inventory into the construct box. The parts of the construct can still be changed place.
+            Drag a part out of the construct box to delete it.
+        </p>
+
+        <h3>Try it !</h3>
+
+        <h4> INVENTORY </h4>
+
+        <ul id="inventory" class="dragula-container horizontal">
+          <li class="dragula-li"><div class="sbolv promoter">promoter 1</div></li>
+          <li class="dragula-li"><div class="sbolv promoter">other promoter</div></li>
+          <li class="dragula-li"><div class="sbolv promoter">prom. 3</div></li>
+          <li class="dragula-li"><div class="sbolv cds">bla</div></li>
+          <li class="dragula-li"><div class="sbolv cds">ble</div></li>
+          <li class="dragula-li"><div class="sbolv cds">bli</div></li>
+          <li class="dragula-li"><div class="sbolv terminator">terminator 1</div></li>
+          <li class="dragula-li"><div class="sbolv terminator">terminator 2 (the best imho)</div></li>
+        </ul>
+
+         <h4> CONSTRUCT </h4>
+        <ul id="sequence" class="dragula-container horizontal"></ul>
+
+    </div>
+</body>
+
+
+<script type="text/javascript">
+dragula(
+    [document.getElementById("inventory"),
+     document.getElementById("sequence")], {
+    copy: function (el, source) {
+        return source === document.getElementById("inventory")
+    },
+    removeOnSpill: true,
+    direction: "horizontal",
+    accepts: function (el, target) {
+        return target !== document.getElementById("inventory")
+      }
+});
+</script>
+
+
+
+
+<style type="text/css">
+
+    html,
+    body {
+        background: #F9F9F9;
+        padding: 0;
+        margin: 0;
+        font: 14px/1.6 "Lucida Grande", "Helvetica", sans-serif;
+        color: #333;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: 'PT Sans', sans-serif;
+        line-height: 40px;
+        color: inherit;
+        font-weight: bold;
+        margin: 10px 0;
+        text-rendering: optimizelegibility;
+    }
+
+    h2,
+    h3 {
+        color: gray;
+    }
+
+    h4 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    strong {
+        color: #424242;
+    }
+
+    a {
+        color: #4183C4;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .wrapper {
+        width: 850px;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    header {
+        margin-top: 70px;
+        margin-bottom: 50px;
+    }
+
+    header h1 {
+        text-align: center;
+        font-size: 75px;
+    }
+
+
+    ul{
+      padding: 10px;
+      border: 1px solid #111;
+    }
+
+    .dragula-li {
+        background-color: #eee;
+        border: 1px solid #ccc;
+        margin-right:3px;
+        margin-left:3px;
+        list-style: none;
+        margin: 0px;
+        padding:0px;
+    }
+
+    #sequence .dragula-li{
+        background: none;
+        border: none;
+        margin-right:0px;
+        margin-left:0px;
+    }
+
+    .horizontal li{
+      display: inline-block;
+    }
+
+    #sequence {
+        height:250px;
+        overflow-y: auto;
+        overflow-x:hidden;
+    }
+
+</style>
+
+</html>

@@ -1,12 +1,17 @@
 .sbol-visual {
     padding-bottom:3px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
     display: flex;
+    -webkit-justify-content: left;
     justify-content: left;
     align-items: left;
     flex-wrap: wrap;
 }
 
 .sbol-visual.centered {
+    -webkit-justify-content: center;
     justify-content: center;
 }
 

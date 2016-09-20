@@ -23,8 +23,8 @@
         </header>
 
         <p>
-            This example demonstrates a DNA assembly editor using the library <a href="../index.html">SBOL Visual
-    CSS</a> for SBOL symbols visualization. (The in-text parts suggestion is powered by <a href="http://ichord.github.io/At.js/">At.js</a>)
+            This example demonstrates a text-based editor for combinatorial DNA assemblies using the library <a href="../index.html">SBOL Visual
+    CSS</a> for SBOL symbols visualization. The in-text parts suggestion is powered by <a href="http://ichord.github.io/At.js/">At.js</a>
         </p>
 
         <h3>Usage</h3>
@@ -40,6 +40,8 @@
         </p>
 
         <h3>Try it !</h3>
+
+        <h4>CONSTRUCT DESCRIPTION</h4>
 
         <div id="main">
             <div id="editable" class="inputor" contentEditable="true">
@@ -62,7 +64,8 @@
                 </span>;&nbsp;
 
             </div>
-            <button id="render-button" onclick="render()" class="btn btn-primary">Render</button>
+            <h4>SCHEMA OF THE CONSTRUCT</h4>
+            <button id="render-button" onclick="render()" class="btn btn-primary center-block render-button">Render</button>
 
             <div id="rendering-div"></div>
         </div>
@@ -213,6 +216,11 @@
         color: gray;
     }
 
+    h4 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
     strong {
         color: #424242;
     }
@@ -290,6 +298,10 @@
     .sbol-visual.small .sbolv {
         height: 80px;
         min-width: 35px;
+    }
+
+    .render-button {
+        margin-bottom: 20px;
     }
 </style>
 

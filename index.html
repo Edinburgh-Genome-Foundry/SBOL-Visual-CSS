@@ -53,7 +53,9 @@ Its features include inline SBOL (for instance
     <div class="sbolv terminator"></div>
 </div>
 
-For an example of SBOL Visual CSS in action, see [this assembly editor](examples/assembly_editor.html).
+For an example of SBOL Visual CSS in action, see
+[this drag-and-drop SBOLv editor](examples/drag_and_drop_construct_editor.html) or
+[this text-based editor](examples/text_based_construct_editor.html).
 
 ## Contribute !
 
@@ -334,6 +336,34 @@ from modifying the SVG files. However it is possible to invert all colors of the
     </div>
 </div>
 
+## Using SBOL Visual CSS in an email
+
+To send an email featuring SBOLv symbols, SBOL Visual CSS must be embedded into
+the HTML of the email (see [this Python script](examples/embed_SBOLv_in_html_email.py)).
+
+## Generating a PNG
+
+It is possible to convert SBOLv images to PDF, PNG, etc. using any modern HTML
+renderer. For instance [this Python script](examples/render_png_with_wkHTMLtoImage.py)
+uses [wkHTMLtoPDF](http://wkhtmltopdf.org/) to generate PNGs from a list of elements.
+It implements the practical function `render_sbolv` which is used as follows:
+
+```
+render_sbolv(
+    sbolv_elements=[
+        ("promoter", "P1"),
+        ("cds", "my favourite gene with a super long name"),
+        ("terminator", "Tr. 1"),
+        ("promoter", "P2"),
+        ("cds", "<em>acs</em>"),
+        ("terminator", "Tr. 2")
+    ],
+    outfile="rendered_sbolv.png",
+    css_stylesheets=["../dist/sbol-visual-standalone.css"]
+)
+```
+
+<img src="examples/rendered_sbolv.png" class="centered-image"/>
 
 
 ## Reference
@@ -386,6 +416,12 @@ h1 {
     text-align: center;
     margin-bottom:30px
 }
+
+h2 {
+    margin-top: 35px;
+}
+
+
 body{
 }
 
@@ -418,6 +454,12 @@ th, td {
     background: url("EGF-logo.svg") no-repeat;
     background-size: 40px;
 
+}
+
+.centered-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 </style>
 
