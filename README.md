@@ -19,4 +19,4 @@ is therefore fit for embedding into HTML emails.
 
 
 SBOL-visual CSS was originally written at the [Edinburgh Genome Foundry](http://genomefoundry.org/) by [Zulko](https://github.com/Zulko).
-The code is released on [Github](https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS) under the MIT Licence (Copyright Edinburgh Genome Foundry), everyone is welcome to contribute.
+The code is released on [Github](https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS) under the MIT License (Copyright Edinburgh Genome Foundry), everyone is welcome to contribute.
