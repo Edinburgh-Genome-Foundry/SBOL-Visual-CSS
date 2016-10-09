@@ -67,16 +67,21 @@
 }
 
 .sbol-visual .combinatorial {
-    outline: 2px dotted black;
-    margin-left:5px;
-    margin-right:5px;
+    outline: 1px solid gray;
+    margin-left:2px;
+    margin-right:2px;
     margin-bottom:8px;
+    margin-top:2px;
     height:100%;
 
 }
 
 .sbol-visual .combinatorial .sbol-visual {
     text-align: center;
+}
+
+.sbol-visual .combinatorial .sbolv {
+    margin-top: -2px;
 }
 
 .sbolv.promoter { background-image: url("SVG/promoter.svg");}

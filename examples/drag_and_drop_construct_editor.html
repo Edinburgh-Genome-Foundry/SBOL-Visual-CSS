@@ -1,55 +1,101 @@
 <!DOCTYPE HTML>
 <html lang="en">
+ <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 
-<head>
-    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-    <title>SBOL Drag-and-Drop editor</title>
-    <link rel="stylesheet" href="../dist/sbol-visual-standalone.css" />
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' rel='stylesheet' type='text/css'>
-</head>
+<title>Drag&Drop editor</title>
+
+<xmp theme="simplex" style="display:none;">
+[Back to the docs](../index.html)
+
+# Advanced Tooltips
+
+This example demonstrates a drag-and-drop editor using the library [SBOL Visual
+    CSS](../index.html) for SBOL symbols visualization.
+The drag-and-drop mechanism is powered by the [Dragula](https://bevacqua.github.io/dragula/) library.
+
+Drag the genetic parts from the inventory into the construct box, or directly from the inventory to change their place.
+
+#### INVENTORY
+
+<ul id="inventory" class="dragula-container horizontal">
+    <li class="dragula-li">
+        <div class="sbolv promoter">promoter 1</div>
+    </li>
+    <li class="dragula-li">
+        <div class="sbolv promoter">promoter 2</div>
+    </li>
+    <li class="dragula-li">
+        <div class="sbolv cds">gene 1</div>
+    </li>
+    <li class="dragula-li">
+        <div class="sbolv cds">gene with a very long name</div>
+    </li>
+    <li class="dragula-li">
+        <div class="sbolv terminator">terminator 1</div>
+    </li>
+    <li class="dragula-li">
+        <div class="sbolv terminator">terminator 2</div>
+    </li>
+</ul>
+
+#### CONSTRUCT </h4>
+<ul id="sequence" class="dragula-container horizontal"></ul>
+
+### Code for this example
+
+HTML:
+
+```
+<h4> INVENTORY </h4>
+
+<ul id="inventory" class="dragula-container horizontal">
+    <li class="dragula-li">
+        <div class="sbolv promoter">promoter 1</div>
+    </li>
+    <li class="dragula-li">
+        <div class="sbolv promoter">promoter 2</div>
+    </li>
+    <li class="dragula-li">
+        <div class="sbolv cds">gene 1</div>
+    </li>
+    <li class="dragula-li">
+        <div class="sbolv cds">gene with a very long name</div>
+    </li>
+    <li class="dragula-li">
+        <div class="sbolv terminator">terminator 1</div>
+    </li>
+    <li class="dragula-li">
+        <div class="sbolv terminator">terminator 2</div>
+    </li>
+</ul>
+
+<h4> CONSTRUCT </h4>
+
+<ul id="sequence" class="dragula-container horizontal"></ul>
+```
 
 
-<body>
-    <div class="container wrapper">
-        <header>
-            <h1>Drag&Drop editor</h1>
-        </header>
-
-        <p>
-            This example demonstrates a drag-and-drop editor using the library <a href="../index.html">SBOL Visual
-    CSS</a> for SBOL symbols visualization. The drag-and-drop mechanism is powered by the <a href="http://ichord.github.io/At.js/">Dragula</a> library
-        </p>
-
-        <h3>Usage</h3>
-        <p>
-            Drag the genetic parts of the inventory into the construct box. The parts of the construct can still be changed place.
-            Drag a part out of the construct box to delete it.
-        </p>
-
-        <h3>Try it !</h3>
-
-        <h4> INVENTORY </h4>
-
-        <ul id="inventory" class="dragula-container horizontal">
-          <li class="dragula-li"><div class="sbolv promoter">promoter 1</div></li>
-          <li class="dragula-li"><div class="sbolv promoter">other promoter</div></li>
-          <li class="dragula-li"><div class="sbolv promoter">prom. 3</div></li>
-          <li class="dragula-li"><div class="sbolv cds">bla</div></li>
-          <li class="dragula-li"><div class="sbolv cds">ble</div></li>
-          <li class="dragula-li"><div class="sbolv cds">bli</div></li>
-          <li class="dragula-li"><div class="sbolv terminator">terminator 1</div></li>
-          <li class="dragula-li"><div class="sbolv terminator">terminator 2 (the best imho)</div></li>
-        </ul>
-
-         <h4> CONSTRUCT </h4>
-        <ul id="sequence" class="dragula-container horizontal"></ul>
-
-    </div>
-</body>
-
+JavaScript:
+```
+dragula(
+    [document.getElementById("inventory"),
+     document.getElementById("sequence")], {
+    copy: function (el, source) {
+        return source === document.getElementById("inventory")
+    },
+    removeOnSpill: true,
+    direction: "horizontal",
+    accepts: function (el, target) {
+        return target !== document.getElementById("inventory")
+      }
+})
+```
+</xmp>
+<script  src="https://cdn.rawgit.com/arturadib/strapdown/gh-pages/v/0.2/strapdown.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="../dist/sbol-visual-standalone.css" />
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript">
 dragula(
@@ -69,105 +115,92 @@ dragula(
 
 
 
-<style type="text/css">
+<style language="css" type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 
-    html,
-    body {
-        background: #F9F9F9;
-        padding: 0;
-        margin: 0;
-        font: 14px/1.6 "Lucida Grande", "Helvetica", sans-serif;
-        color: #333;
-    }
+h1 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom:30px
+}
 
-    p {
-        font-size: 16px;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-        font-family: 'PT Sans', sans-serif;
-        line-height: 40px;
-        color: inherit;
-        font-weight: bold;
-        margin: 10px 0;
-        text-rendering: optimizelegibility;
-    }
-
-    h2,
-    h3 {
-        color: gray;
-    }
-
-    h4 {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    strong {
-        color: #424242;
-    }
-
-    a {
-        color: #4183C4;
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    .wrapper {
-        width: 850px;
-        padding: 20px;
-        margin: 0 auto;
-    }
-
-    header {
-        margin-top: 70px;
-        margin-bottom: 50px;
-    }
-
-    header h1 {
-        text-align: center;
-        font-size: 75px;
-    }
+h2 {
+    margin-top: 35px;
+}
 
 
-    ul{
-      padding: 10px;
-      border: 1px solid #111;
-    }
+body{
+}
 
-    .dragula-li {
-        background-color: #eee;
-        border: 1px solid #ccc;
-        margin-right:3px;
-        margin-left:3px;
-        list-style: none;
-        margin: 0px;
-        padding:0px;
-    }
+#content {
+    font-family: "Raleway";
+    font-size: 16px;
+    max-width: 700px;
+}
 
-    #sequence .dragula-li{
-        background: none;
-        border: none;
-        margin-right:0px;
-        margin-left:0px;
-    }
+code, pre {
+    font-size:16px;
+}
 
-    .horizontal li{
-      display: inline-block;
-    }
+.sbol-visual.big .sbolv {
+    height: 150px;
+    min-width: 60px;
+}
 
-    #sequence {
-        height:250px;
-        overflow-y: auto;
-        overflow-x:hidden;
-    }
+table {
+    margin:auto;
+}
 
+th, td {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+#headline {
+    padding-left:50px;
+    background: url("../EGF-logo.svg") no-repeat;
+    background-size: 40px;
+
+}
+
+.centered-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+
+ul{
+  padding: 10px;
+  border: 1px solid #111;
+}
+
+.dragula-li {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin-right:3px;
+    margin-left:3px;
+    list-style: none;
+    margin: 0px;
+    padding:0px;
+}
+
+#sequence .dragula-li{
+    background: none;
+    border: none;
+    margin-right:0px;
+    margin-left:0px;
+}
+
+.horizontal li{
+  display: inline-block;
+}
+
+#sequence {
+    height:250px;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
 </style>
 
 </html>

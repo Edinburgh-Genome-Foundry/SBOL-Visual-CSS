@@ -53,9 +53,11 @@ Its features include inline SBOL (for instance
     <div class="sbolv terminator"></div>
 </div>
 
-For an example of SBOL Visual CSS in action, see
-[this drag-and-drop SBOLv editor](examples/drag_and_drop_construct_editor.html) or
-[this text-based editor](examples/text_based_construct_editor.html).
+## Some examples of SBOL Visual CSS in action
+
+- [A drag-and-drop SBOLv editor](examples/drag_and_drop_construct_editor.html)
+- [A text-based editor for combinatorial constructs](examples/text_based_construct_editor.html).
+- [Advanced tooltips](examples/advanced_tooltips.html)
 
 ## Contribute !
 
@@ -93,24 +95,19 @@ They will be displayed as follows:
     <div class="sbolv insulator"></div>
 </div>
 
-When the number of `sbolv` elements increases, they are nicely wrapped to the line:
+Note that the `sbolv` divs can contain any kind of html, for instance a link:
 
-<div class="sbol-visual">
-    <div class="sbolv promoter"> P1 </div>
-    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
-    <div class="sbolv cds"><em>acs</em></div>
-    <div class="sbolv terminator"></div>
-    <div class="sbolv insulator"></div>
-    <div class="sbolv promoter"> P1 </div>
-    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
-    <div class="sbolv cds"><em>acs</em></div>
-    <div class="sbolv terminator"></div>
-    <div class="sbolv insulator"></div>
-    <div class="sbolv promoter"> P1 </div>
-    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
-    <div class="sbolv cds"><em>acs</em></div>
-    <div class="sbolv terminator"></div>
-    <div class="sbolv insulator"></div>
+```
+<div class="sbolv cds">
+    <a href="http://www.uniprot.org/uniprot/P0ACJ8">
+        Gene <em>crp</em>
+    </a>
+</div>
+```
+<div class="sbolv cds">
+    <a href="http://www.uniprot.org/uniprot/P0ACJ8">
+        Gene <em>crp</em>
+    </a>
 </div>
 
 ## Centering the symbols
@@ -132,9 +129,10 @@ Beware that all lines will be centered, even if they contain only a single symbo
     <div class="sbolv terminator">t2</div>
 </div>
 
-## Adaptive width
+## Adaptive width and line break
 
 Put any html you want into the `sbolv` divs, the SBOL symbols will stretch to make space:
+
 ```
 <div class="sbol-visual centered">
     <div class="sbolv promoter"> P1 </div>
@@ -160,6 +158,28 @@ If the caption is longer than `sbolv.max-width` (default is `200px`) the caption
     <div class="sbolv terminator"></div>
 </div>
 
+
+
+And if there the `sbolv` take too much place for one line only they are
+automatically wrapped to the line (try changing your window's width and see how it responds):
+
+<div class="sbol-visual">
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds"><em>acs</em></div>
+    <div class="sbolv terminator"></div>
+    <div class="sbolv insulator"></div>
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds"><em>acs</em></div>
+    <div class="sbolv terminator"></div>
+    <div class="sbolv insulator"></div>
+    <div class="sbolv promoter"> P1 </div>
+    <div class="sbolv ribosome-entry-site"> rbs 1 </div>
+    <div class="sbolv cds"><em>acs</em></div>
+    <div class="sbolv terminator"></div>
+    <div class="sbolv insulator"></div>
+</div>
 
 ## Changing the symbols' size
 
@@ -281,7 +301,50 @@ You can also insert a `sbol-visual` div inside a `combinatorial` div to make mor
     <div class="sbolv terminator"></div>
 </div>
 
+And it is possible to nest combinatorial representations, to represent
+combinatorial libraries obtained from two or more other combinatorial
+libraries.
+```
+<div class="sbol-visual centered small">
+    <div class='combinatorial'>
+       <div class="sbol-visual">
+            <div class='combinatorial'>
+                <div class="sbolv promoter">Pr1</div>
+                <div class="sbolv promoter">Pr2</div>
+            </div>
+            <div class="sbolv cds"><em>acs</em></div>
+       </div>
+       <div class="sbol-visual">
+            <div class='combinatorial'>
+                <div class="sbolv promoter">PrA</div>
+                <div class="sbolv promoter">PrB</div>
+            </div>
+            <div class="sbolv cds"><em>bla</em></div>
+       </div>
+    </div>
+    <div class="sbolv terminator"></div>
+</div>
+```
 
+<div class="sbol-visual centered small">
+    <div class='combinatorial'>
+       <div class="sbol-visual">
+            <div class='combinatorial'>
+                <div class="sbolv promoter">Pr1</div>
+                <div class="sbolv promoter">Pr2</div>
+            </div>
+            <div class="sbolv cds"><em>acs</em></div>
+       </div>
+       <div class="sbol-visual">
+            <div class='combinatorial'>
+                <div class="sbolv promoter">PrA</div>
+                <div class="sbolv promoter">PrB</div>
+            </div>
+            <div class="sbolv cds"><em>bla</em></div>
+       </div>
+    </div>
+    <div class="sbolv terminator"></div>
+</div>
 
 ## Inline symbols
 

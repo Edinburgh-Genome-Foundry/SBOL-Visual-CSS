@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html lang="en">
+ <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+<title>SBOL Visual CSS - Advanced Tooltips</title>
+
+<xmp theme="simplex" style="display:none;">
+[Back to the docs](../index.html)
+
+# Advanced Tooltips
+
+This example shows different ways to add information to a [SBOL Visual
+CSS](../index.html) schema by using tooltips triggered on hovering or clicking elements.
+The fancy tooltips are provided by the [Opentip](http://www.opentip.org/) library
+
+## Try it !
+
+<div class="sbol-visual centered">
+  <div class="sbolv protease-site"
+       title="I'm a protease site !">
+    Simple tooltip<br />(hover me !)
+  </div>
+
+  <div class="sbolv promoter"
+    data-ot="Promoter P1 (E. <em>coli</em>)"
+    data-ot-target="true"
+    data-ot-fixed="true"
+    data-ot-tip-joint="bottom left">
+    Custom tooltip<br />(hover me !)
+  </div>
+
+  <div class="sbolv terminator"
+    data-ot="
+    <b>Double terminator</b><br />
+    <img src='http://parts.igem.org/wiki/images/e/e2/Mfold-B0015-1.png'
+    style='width:120px;height:50px'/><br />
+    Source:<a href='http://parts.igem.org/Part:BBa_B0015'>iGEM<a>
+    "
+    data-ot-fixed="true" data-ot-tip-joint="bottom left"
+    data-ot-show-on="click" data-ot-hide-trigger="closeButton"
+    data-ot-close-button-cross-color="#000" data-ot-target="true"
+    data-ot-background="#fff" data-ot-border-color="#bbb">
+        Fancy tooltip<br />(click me !)
+    </div>
+</div>
+
+## Code for this example
+
+```
+<div class="sbol-visual centered">
+  <div class="sbolv protease-site"
+       title="I'm a protease site !">
+
+    Simple tooltip<br />(hover me !)
+
+  </div>
+
+  <div class="sbolv promoter"
+    data-ot="Promoter P1 (E. <em>coli</em>)"
+    data-ot-target="true"
+    data-ot-fixed="true"
+    data-ot-tip-joint="bottom left">
+
+    Custom tooltip<br />(hover me !)
+
+  </div>
+
+  <div class="sbolv terminator"
+    data-ot-fixed="true"
+    data-ot-tip-joint="bottom left"
+    data-ot-show-on="click"
+    data-ot-hide-trigger="closeButton"
+    data-ot-close-button-cross-color="#000"
+    data-ot-target="true"
+    data-ot-background="#fff"
+    data-ot-border-color="#bbb"
+    data-ot="
+    <b>Double terminator</b><br />
+    <img src=
+    'http://parts.igem.org/wiki/images/e/e2/Mfold-B0015-1.png'
+    style='width:120px;height:50px'/><br />
+    Source:<a href='http://parts.igem.org/Part:BBa_B0015'>iGEM<a>
+    ">
+
+    Fancy tooltip<br />(click me !)
+
+  </div>
+</div>
+```
+
+</xmp>
+
+<!-- <script  src="http://strapdownjs.com/v/0.2/strapdown.js"></script> -->
+<script  src="https://cdn.rawgit.com/arturadib/strapdown/gh-pages/v/0.2/strapdown.js"></script>
+<link rel="stylesheet" href="../dist/sbol-visual-standalone.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src='https://cdn.rawgit.com/enyo/opentip/master/downloads/opentip-jquery.min.js'></script>
+<link href='https://cdn.rawgit.com/enyo/opentip/master/css/opentip.css' rel='stylesheet' type='text/css'>
+
+<style language="css" type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom:30px
+}
+
+h2 {
+    margin-top: 35px;
+}
+
+
+body{
+}
+
+#content {
+    font-family: "Raleway";
+    font-size: 16px;
+    max-width: 700px;
+}
+
+code, pre {
+    font-size:16px;
+}
+
+.sbol-visual.big .sbolv {
+    height: 150px;
+    min-width: 60px;
+}
+
+table {
+    margin:auto;
+}
+
+th, td {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+#headline {
+    padding-left:50px;
+    background: url("../EGF-logo.svg") no-repeat;
+    background-size: 40px;
+
+}
+
+.centered-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+
+#preload-01 { background: url(http://parts.igem.org/wiki/images/e/e2/Mfold-B0015-1.png) no-repeat -9999px -9999px; }
+</style>
+
+
+</html>

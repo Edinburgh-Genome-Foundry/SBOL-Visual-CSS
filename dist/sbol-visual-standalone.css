@@ -67,10 +67,11 @@
 }
 
 .sbol-visual .combinatorial {
-    outline: 2px dotted black;
-    margin-left:5px;
-    margin-right:5px;
+    outline: 1px solid gray;
+    margin-left:2px;
+    margin-right:2px;
     margin-bottom:8px;
+    margin-top:2px;
     height:100%;
 
 }
@@ -78,6 +79,11 @@
 .sbol-visual .combinatorial .sbol-visual {
     text-align: center;
 }
+
+.sbol-visual .combinatorial .sbolv {
+    margin-top: -2px;
+}
+
 
 .sbolv.promoter { background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSItMjAwIDAgNDUwIDEwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6I2ZmZmZmZjAwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiCXg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNDUwcHgiIGhlaWdodD0iMTAwcHgiID4gICA8ZGVmcz4gICAgIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+ICAgICA8IVtDREFUQVsgICAgICAgcGF0aCxjaXJjbGUgeyAgICAgICAgIHN0cm9rZTojMDAwMDAwOyAgICAgICAgIHN0cm9rZS13aWR0aDogMzsgICAgICAgICBzdHJva2UtbGluZWNhcDogcm91bmQ7ICAgICAgICAgc3Ryb2tlLWxpbmVqb2luOiByb3VuZDsgICAgICAgICBmaWxsOiBub25lICAgICAgIH1dXT4gCTwvc3R5bGU+ICAgPC9kZWZzPjxwYXRoIGQ9Ik0gLTIwMCA1MCBMIDI1MCA1MCIvPiAgICA8cGF0aCBkPSJNIDMxLjUgMTUuNSBMIDQwIDIzIEwgMzEuNSAzMC4zMzMzIiAvPiAgIDxwYXRoIGQ9Ik0gMTAgNTAgTCAxMCAyMyBMIDM5IDIzIiAvPiA8L3N2Zz4=");}
 .sbolv.five-prime-overhang { background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSItMjAwIDAgNDUwIDEwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6I2ZmZmZmZjAwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiCXg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNDUwcHgiIGhlaWdodD0iMTAwcHgiID4gICA8ZGVmcz4gICAgIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+ICAgICA8IVtDREFUQVsgICAgICAgcGF0aCxjaXJjbGUgeyAgICAgICAgIHN0cm9rZTojMDAwMDAwOyAgICAgICAgIHN0cm9rZS13aWR0aDogMzsgICAgICAgICBzdHJva2UtbGluZWNhcDogcm91bmQ7ICAgICAgICAgc3Ryb2tlLWxpbmVqb2luOiByb3VuZDsgICAgICAgICBmaWxsOiBub25lICAgICAgIH1dXT4gCTwvc3R5bGU+ICAgPC9kZWZzPjxwYXRoIGQ9Ik0gLTIwMCA1MCBMIDI1MCA1MCIvPiAgICA8cGF0aCBkPSJNIDEwIDQ2IEwgNDAgNDYiLz4gICA8cGF0aCBkPSJNIDI1IDU0IEwgNDAgNTQiLz4gPC9zdmc+");}
