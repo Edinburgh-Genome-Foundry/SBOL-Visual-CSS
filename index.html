@@ -97,6 +97,7 @@ They will be displayed as follows:
 
 Note that the `sbolv` divs can contain any kind of html, for instance a link:
 
+**Code:**
 ```
 <div class="sbolv cds">
     <a href="http://www.uniprot.org/uniprot/P0ACJ8">
@@ -104,6 +105,8 @@ Note that the `sbolv` divs can contain any kind of html, for instance a link:
     </a>
 </div>
 ```
+
+**Result:**
 <div class="sbolv cds">
     <a href="http://www.uniprot.org/uniprot/P0ACJ8">
         Gene <em>crp</em>
@@ -115,6 +118,7 @@ Note that the `sbolv` divs can contain any kind of html, for instance a link:
 An easy way to center the symbols is to add `centered` to the `sbol-visual` div.
 Beware that all lines will be centered, even if they contain only a single symbol (which can happen at the end of a line wrap).
 
+**Code:**
 ```
 <div class="sbol-visual centered">
     <div class="sbolv promoter"> P1 </div>
@@ -122,7 +126,7 @@ Beware that all lines will be centered, even if they contain only a single symbo
     <div class="sbolv terminator">t2</div>
 </div>
 ```
-
+**Result:**
 <div class="sbol-visual centered">
     <div class="sbolv promoter"> P1 </div>
     <div class="sbolv cds">bla</div>
@@ -133,6 +137,7 @@ Beware that all lines will be centered, even if they contain only a single symbo
 
 Put any html you want into the `sbolv` divs, the SBOL symbols will stretch to make space:
 
+**Code:**
 ```
 <div class="sbol-visual centered">
     <div class="sbolv promoter"> P1 </div>
@@ -141,7 +146,7 @@ Put any html you want into the `sbolv` divs, the SBOL symbols will stretch to ma
     <div class="sbolv terminator"></div>
 </div>
 ```
-
+**Result:**
 <div class="sbol-visual centered">
     <div class="sbolv promoter"> P1 </div>
     <div class="sbolv ribosome-entry-site"> rbs 1 </div>
@@ -195,8 +200,9 @@ To get smaller symbols you would first add CSS class `small` to `sbol-visual`:
 }
 ```
 
-Then in hour html you add `small` to your div's classes:
+Then add `small` to your div's classes:
 
+**Code:**
 ```
 <div class="sbol-visual small centered">
     <div class="sbolv promoter"> P1 </div>
@@ -205,6 +211,7 @@ Then in hour html you add `small` to your div's classes:
 </div>
 ```
 
+**Result:**
 <div class="sbol-visual centered small">
     <div class="sbolv promoter"> P1 </div>
     <div class="sbolv cds">bla</div>
@@ -222,6 +229,8 @@ Then in hour html you add `small` to your div's classes:
 ## Combinatorial designs
 
 Combinatorial designs (where several possibilities are given for some regions of the design) can be represented by grouping several symbols inside a div with class `combinatorial`.
+
+**Code:**
 ```
 <div class="sbol-visual centered small">
     <div class="sbolv promoter">p1</div>
@@ -236,6 +245,8 @@ Combinatorial designs (where several possibilities are given for some regions of
     </div>
     <div class="sbolv insulator">insulator</div>
 </div>
+
+**Result:**
 ```
 <div class="sbol-visual centered small">
     <div class="sbolv promoter">p1</div>
@@ -253,6 +264,7 @@ Combinatorial designs (where several possibilities are given for some regions of
 
 You can also insert a `sbol-visual` div inside a `combinatorial` div to make more complex combinations:
 
+**Code:**
 ```
 <div class="sbol-visual centered small">
     <div class="sbolv insulator"></div>
@@ -278,6 +290,7 @@ You can also insert a `sbol-visual` div inside a `combinatorial` div to make mor
 </div>
 ```
 
+**Result:**
 <div class="sbol-visual centered small">
     <div class="sbolv insulator"></div>
     <div class='combinatorial'>
@@ -304,6 +317,8 @@ You can also insert a `sbol-visual` div inside a `combinatorial` div to make mor
 And it is possible to nest combinatorial representations, to represent
 combinatorial libraries obtained from two or more other combinatorial
 libraries.
+
+**Code:**
 ```
 <div class="sbol-visual centered small">
     <div class='combinatorial'>
@@ -326,6 +341,7 @@ libraries.
 </div>
 ```
 
+**Result:**
 <div class="sbol-visual centered small">
     <div class='combinatorial'>
        <div class="sbol-visual">
@@ -342,6 +358,74 @@ libraries.
             </div>
             <div class="sbolv cds"><em>bla</em></div>
        </div>
+    </div>
+    <div class="sbolv terminator"></div>
+</div>
+
+## Antisense symbols
+
+**Code:**
+```
+<div class="sbol-visual centered small">
+    <div class="sbolv antisense terminator"></div>
+    <div class="sbolv antisense cds">cds 1</div>
+    <div class="sbolv antisense promoter"></div>
+    <div class="sbolv promoter"></div>
+    <div class="sbolv cds">cds 2</div>
+</div>
+```
+
+**Result:**
+<div class="sbol-visual centered small">
+    <div class="sbolv antisense terminator"></div>
+    <div class="sbolv antisense cds">cds 1</div>
+    <div class="sbolv antisense promoter"></div>
+    <div class="sbolv promoter"></div>
+    <div class="sbolv cds">cds 2</div>
+</div>
+
+If you don't fancy the inverted text of the antisense
+symbol labels, place the label inside an `antisense` div:
+
+**Code:**
+```
+<div class="sbol-visual centered small">
+    <div class="sbolv antisense terminator"></div>
+    <div class="sbolv antisense cds">
+        <div class="antisense">cds 1</div>
+    </div>
+    <div class="sbolv antisense promoter"></div>
+</div>
+```
+
+**Result:**
+<div class="sbol-visual centered small">
+    <div class="sbolv antisense terminator"></div>
+    <div class="sbolv antisense cds">
+        <div class="antisense">cds 1</div>
+    </div>
+    <div class="sbolv antisense promoter"></div>
+</div>
+
+Also note that is is possible to invert a whole block at once
+making the block antisense:
+
+**Code:**
+```
+<div class="sbol-visual centered small antisense">
+    <div class="sbolv promoter"></div>
+    <div class="sbolv cds">
+        <div class="antisense">cds</div>
+    </div>
+    <div class="sbolv terminator"></div>
+</div>
+```
+
+**Result:**
+<div class="sbol-visual centered small antisense">
+    <div class="sbolv promoter"></div>
+    <div class="sbolv cds">
+        <div class="antisense">cds</div>
     </div>
     <div class="sbolv terminator"></div>
 </div>

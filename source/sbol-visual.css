@@ -28,7 +28,7 @@
     background-image: url("SVG/user-defined.svg");
     background-size: auto 85%;
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: 50% 50%;
 }
 
 .sbol-visual.inline {
@@ -82,6 +82,13 @@
 
 .sbol-visual .combinatorial .sbolv {
     margin-top: -2px;
+}
+
+.antisense {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
 }
 
 .sbolv.promoter { background-image: url("SVG/promoter.svg");}
