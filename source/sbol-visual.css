@@ -21,12 +21,12 @@
     line-height:14px;
     padding-left: 10px;
     padding-right: 10px;
-    height:120px;
+    height:130px;
     min-width:50px;
     max-width:200px;
     text-align:center;
     background-image: url("SVG/user-defined.svg");
-    background-size: auto 85%;
+    background-size: auto 80%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
