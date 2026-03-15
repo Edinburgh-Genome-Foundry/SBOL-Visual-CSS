@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import base64
 import json
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -16,12 +17,42 @@ def svg_to_data_uri(svg_path: Path) -> str:
     return f"data:image/svg+xml;base64,{encoded}"
 
 
+def build_css(base_css: str, icons: list[dict[str, str]]) -> str:
+    icon_map = {icon["name"]: icon for icon in icons}
+    default_icon = icon_map.get("user-defined")
+
+    if default_icon is not None:
+        base_css = base_css.replace(
+            'background-image: url("SVG/user-defined.svg");',
+            f'background-image: url("{default_icon["dataUri"]}");',
+        )
+
+    generated_lines = [
+        "",
+        "/* Generated from icons.json by build.py */",
+    ]
+    generated_lines.extend(
+        f'.sbolv.{icon["name"]} {{ background-image: url("{icon["dataUri"]}");}}'
+        for icon in icons
+    )
+    return base_css.rstrip() + "\n" + "\n".join(generated_lines) + "\n"
+
+
 def build() -> None:
     source_dir = Path(__file__).resolve().parent
+    repo_dir = source_dir.parent
     svg_dir = source_dir / "SVG"
     base_css_path = source_dir / "base.css"
     icons_json_path = source_dir / "icons.json"
     target_css_path = source_dir / "sbol-visual.css"
+    root_dist_dir = repo_dir / "dist"
+    root_css_path = root_dist_dir / "sbol-visual-standalone.css"
+    docs_dir = repo_dir / "docs"
+    docs_dist_dir = docs_dir / "dist"
+    docs_examples_dir = docs_dir / "examples"
+    docs_icons_json_path = docs_dist_dir / "icons.json"
+    docs_css_path = docs_dist_dir / "sbol-visual-standalone.css"
+    examples_dir = repo_dir / "examples"
 
     svg_paths = sorted(svg_dir.glob("*.svg"))
     icons = []
@@ -50,20 +81,19 @@ def build() -> None:
     )
 
     base_css = base_css_path.read_text(encoding="utf-8").rstrip()
-    generated_lines = [
-        "",
-        "/* Generated from icons.json by build.py */",
-    ]
-    generated_lines.extend(
-        f'.sbolv.{icon["name"]} {{ background-image: url("{icon["dataUri"]}");}}'
-        for icon in icons
-    )
+    generated_icons = json.loads(icons_json_path.read_text(encoding="utf-8"))["icons"]
+    target_css_content = build_css(base_css=base_css, icons=generated_icons)
 
-    target_css_content = base_css + "\n" + "\n".join(generated_lines) + "\n"
-    target_css_path.write_text(target_css_content, encoding="utf-8")
+    root_dist_dir.mkdir(parents=True, exist_ok=True)
+    root_css_path.write_text(target_css_content, encoding="utf-8")
+
+    if examples_dir.exists():
+        shutil.copytree(examples_dir, docs_examples_dir, dirs_exist_ok=True)
 
     print(f"Generated {icons_json_path} with {len(icons)} icons")
-    print(f"Written {target_css_path}")
+    print(f"Published {root_css_path}")
+    if examples_dir.exists():
+        print(f"Synced {docs_examples_dir}")
 
 
 if __name__ == "__main__":
