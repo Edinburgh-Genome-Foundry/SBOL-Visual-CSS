@@ -19,7 +19,9 @@ is therefore fit for embedding into HTML emails.
 
 ## Build
 
-The project now uses one central Python script:
+The project now uses two Python entry points depending on what you want to generate.
+
+### Library bundle
 
 ```bash
 python source/build.py
@@ -28,10 +30,26 @@ python source/build.py
 This command will:
 
 - compile all SVG icons from `source/SVG/` into `source/icons.json`
-- generate the standalone stylesheet `source/sbol-visual.css`
-- publish the standalone bundle into `dist/`
-- publish the website assets into `docs/dist/`
+- generate the standalone stylesheet bundle in `dist/sbol-visual-standalone.css`
+
+### Documentation site
+
+```bash
+python source/docs.py
+```
+
+This command will:
+
+- run the library build from `source/build.py`
+- copy the stylesheet bundle into `docs/dist/`
 - sync the example files into `docs/examples/`
+- render the Jinja2 templates from `docs/templates/` into `docs/*.html`
+
+If Jinja2 is not installed yet, install it with:
+
+```bash
+pip install jinja2
+```
 
 
 SBOL-visual CSS was originally written at the [Edinburgh Genome Foundry](http://genomefoundry.org/) by [Zulko](https://github.com/Zulko).

@@ -1,61 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SBOL Visual CSS · Layout Patterns</title>
-    <link rel="stylesheet" href="dist/sbol-visual-standalone.css" />
-    <link rel="stylesheet" href="assets/docs.css" />
-</head>
-<body>
-    <header class="site-header">
-        <div class="site-header-inner">
-            <a class="brand" href="index.html">
-                <img src="assets/EGF-logo.svg" alt="EGF logo" />
-                <span class="brand-text">
-                    <strong>SBOL Visual CSS</strong>
-                    <small>Documentation</small>
-                </span>
-            </a>
-            <nav class="top-nav">
-                <a href="index.html">Overview</a>
-                <a href="getting-started.html">Getting Started</a>
-                <a class="active" href="layout-patterns.html">Layout</a>
-                <a href="reference.html">Reference</a>
-                <a href="examples.html">Examples</a>
-            </nav>
-        </div>
-    </header>
+{% extends "_sidebar-page.html" %}
+{% set page_title = "Layout Patterns" %}
+{% set active = "layout-patterns" %}
 
-    <main class="page-shell">
-        
-        <section class="page-intro">
-            
+{% block page_intro %}
             <p class="mini-kicker">Composition</p>
             <h1>Compose richer genetic diagrams.</h1>
             <p>This guide focuses on visual layout options and inline rendering.</p>
+{% endblock %}
 
-        </section>
-
-        <div class="page-layout">
-            <aside class="sidebar surface-card">
-                <h2>On this page</h2>
-                <ul>
-                    
+{% block sidebar_nav %}
                     <li><a href="#centering">Centering</a></li>
                     <li><a href="#width">Adaptive width</a></li>
                     <li><a href="#sizing">Sizing</a></li>
                     <li><a href="#inline">Inline symbols</a></li>
                     <li><a href="#inverted">Inverted theme</a></li>
+{% endblock %}
 
-                </ul>
-            </aside>
-
-            <div class="content">
-                
+{% block content %}
                 <section id="centering" class="content-section surface-card">
                     <h2>Centering</h2>
-                    <p>Add <span class="inline-code">centered</span> to the main container when you want wrapped lines to stay centered.</p>
+                    <p>Add <span class="inline-code">centered</span> to the main container when you want wrapped lines to stay centered. Beware that all lines will be centered, even if they contain only a single symbol (e.g. at the end of a line wrap).</p>
                     <pre><code>&lt;div class="sbol-visual centered"&gt;
     &lt;div class="sbolv promoter"&gt;P1&lt;/div&gt;
     &lt;div class="sbolv cds"&gt;bla&lt;/div&gt;
@@ -148,17 +112,4 @@ and a terminator (&lt;span class="sbolv inline terminator"&gt;&lt;/span&gt;).
                         </div>
                     </div>
                 </section>
-
-            </div>
-        </div>
-
-    </main>
-
-    <footer class="site-footer">
-        <div class="site-footer-inner">
-            <span>SBOL Visual CSS by Edinburgh Genome Foundry.</span>
-            <a href="https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS">GitHub repository</a>
-        </div>
-    </footer>
-</body>
-</html>
+{% endblock %}

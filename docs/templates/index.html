@@ -1,34 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SBOL Visual CSS · Documentation</title>
-    <link rel="stylesheet" href="dist/sbol-visual-standalone.css" />
-    <link rel="stylesheet" href="assets/docs.css" />
-</head>
-<body>
-    <header class="site-header">
-        <div class="site-header-inner">
-            <a class="brand" href="index.html">
-                <img src="assets/EGF-logo.svg" alt="EGF logo" />
-                <span class="brand-text">
-                    <strong>SBOL Visual CSS</strong>
-                    <small>Documentation</small>
-                </span>
-            </a>
-            <nav class="top-nav">
-                <a class="active" href="index.html">Overview</a>
-                <a href="getting-started.html">Getting Started</a>
-                <a href="layout-patterns.html">Layout</a>
-                <a href="reference.html">Reference</a>
-                <a href="examples.html">Examples</a>
-            </nav>
-        </div>
-    </header>
+{% extends "_base.html" %}
+{% set page_title = "Documentation" %}
+{% set active = "index" %}
 
-    <main class="page-shell">
-        
+{% block main %}
         <section class="hero">
             <div class="hero-grid">
                 <article class="hero-card">
@@ -97,14 +71,4 @@
                 </article>
             </div>
         </section>
-
-    </main>
-
-    <footer class="site-footer">
-        <div class="site-footer-inner">
-            <span>SBOL Visual CSS by Edinburgh Genome Foundry.</span>
-            <a href="https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS">GitHub repository</a>
-        </div>
-    </footer>
-</body>
-</html>
+{% endblock %}

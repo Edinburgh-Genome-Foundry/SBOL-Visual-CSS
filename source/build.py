@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import base64
 import json
-import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -44,15 +43,8 @@ def build() -> None:
     svg_dir = source_dir / "SVG"
     base_css_path = source_dir / "base.css"
     icons_json_path = source_dir / "icons.json"
-    target_css_path = source_dir / "sbol-visual.css"
     root_dist_dir = repo_dir / "dist"
     root_css_path = root_dist_dir / "sbol-visual-standalone.css"
-    docs_dir = repo_dir / "docs"
-    docs_dist_dir = docs_dir / "dist"
-    docs_examples_dir = docs_dir / "examples"
-    docs_icons_json_path = docs_dist_dir / "icons.json"
-    docs_css_path = docs_dist_dir / "sbol-visual-standalone.css"
-    examples_dir = repo_dir / "examples"
 
     svg_paths = sorted(svg_dir.glob("*.svg"))
     icons = []
@@ -87,13 +79,8 @@ def build() -> None:
     root_dist_dir.mkdir(parents=True, exist_ok=True)
     root_css_path.write_text(target_css_content, encoding="utf-8")
 
-    if examples_dir.exists():
-        shutil.copytree(examples_dir, docs_examples_dir, dirs_exist_ok=True)
-
     print(f"Generated {icons_json_path} with {len(icons)} icons")
     print(f"Published {root_css_path}")
-    if examples_dir.exists():
-        print(f"Synced {docs_examples_dir}")
 
 
 if __name__ == "__main__":

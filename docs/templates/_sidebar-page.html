@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+
+{% block main %}
+        <section class="page-intro">
+            {% block page_intro %}{% endblock %}
+        </section>
+
+        <div class="page-layout">
+            <aside class="sidebar surface-card">
+                <h2>On this page</h2>
+                <ul>
+                    {% block sidebar_nav %}{% endblock %}
+                </ul>
+            </aside>
+
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+{% endblock %}
