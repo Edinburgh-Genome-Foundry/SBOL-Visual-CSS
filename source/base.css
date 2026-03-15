@@ -1,0 +1,76 @@
+.sbol-visual {
+    padding-bottom:3px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-wrap: wrap;
+}
+
+.sbol-visual.centered {
+    justify-content: center;
+}
+
+
+.sbolv {
+    font-size: 12px;
+    line-height:14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height:130px;
+    min-width:50px;
+    max-width:200px;
+    text-align:center;
+    background-image: url("SVG/user-defined.svg");
+    background-size: auto 80%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.sbol-visual.inline {
+    display: inline;
+}
+
+.sbol-visual.inline .sbolv {
+    vertical-align: middle;
+    font-size: 2em;
+    background-size: auto 90%;
+    background-position: 30% auto;
+
+}
+
+.sbolv.inline {
+    vertical-align: middle;
+    font-size: 2em;
+    background-size: auto 90%;
+    background-position: 30% auto;
+
+}
+
+.sbolv.inverted {
+    filter: invert(100%);
+}
+.sbol-visual.inverted .sbolv {
+    filter: invert(100%);
+}
+
+.sbol-visual .combinatorial {
+    outline: 1px solid gray;
+    margin-left:2px;
+    margin-right:2px;
+    margin-bottom:8px;
+    margin-top:2px;
+    height:100%;
+
+}
+
+.sbol-visual .combinatorial .sbol-visual {
+    text-align: center;
+}
+
+.sbol-visual .combinatorial .sbolv {
+    margin-top: -2px;
+}
+
+.antisense {
+    transform: scaleX(-1) scaleY(-1);
+}
