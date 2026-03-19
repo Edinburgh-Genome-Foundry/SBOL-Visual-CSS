@@ -20,9 +20,9 @@
 {% block content %}
                 <section id="install" class="content-section surface-card">
                     <h2>Install</h2>
-                    <p>Download the <a href="https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS/blob/master/dist/sbol-visual-standalone.css">stylesheet</a> and include it in your page:</p>
+                    <p>Download the <a href="{{ repo_url }}/blob/master/dist/sbol-visual-standalone.css">stylesheet</a> and include it in your page:</p>
                     <pre><code>&lt;link rel="stylesheet" href="sbol-visual-standalone.css" /&gt;</code></pre>
-                    <div class="callout"><strong>Build note.</strong> Regenerate the bundle from SVGs using <a href="https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS/blob/master/source/build.py"><span class="inline-code">build.py</span></a>.</div>
+                    <div class="callout"><strong>Build note.</strong> Regenerate the bundle from SVGs using <a href="{{ repo_url }}/blob/master/source/build_css.py"><span class="inline-code">build_css.py</span></a>.</div>
                 </section>
 
                 <section id="first-construct" class="content-section surface-card">

@@ -42,8 +42,8 @@ def build() -> None:
     repo_dir = source_dir.parent
     svg_dir = source_dir / "SVG"
     base_css_path = source_dir / "base.css"
-    icons_json_path = source_dir / "icons.json"
     root_dist_dir = repo_dir / "dist"
+    icons_json_path = root_dist_dir / "icons.json"
     root_css_path = root_dist_dir / "sbol-visual-standalone.css"
 
     svg_paths = sorted(svg_dir.glob("*.svg"))

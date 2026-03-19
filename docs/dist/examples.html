@@ -1,27 +1,63 @@
-{% extends "_sidebar-page.html" %}
-{% set page_title = "Examples" %}
-{% set active = "examples" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SBOL Visual CSS · Examples</title>
+    <link rel="stylesheet" href="sbol-visual-standalone.css" />
+    <link rel="stylesheet" href="assets/docs.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html">
+                <img src="assets/EGF-logo.svg" alt="EGF logo" />
+                <span class="brand-text">
+                    <strong>SBOL Visual CSS</strong>
+                    <small>Documentation</small>
+                </span>
+            </a>
+            <nav class="top-nav">
+                <a href="index.html">Overview</a>
+                <a href="getting-started.html">Getting Started</a>
+                <a href="layout-patterns.html">Layout</a>
+                <a href="reference.html">Reference</a>
+                <a class="active" href="examples.html">Examples</a>
+            </nav>
+        </div>
+    </header>
 
-{% block page_intro %}
+    <main class="page-shell">
+        
+        <section class="page-intro">
+            
             <p class="mini-kicker">Gallery</p>
             <h1>Explore example implementations.</h1>
             <p>This page integrates all demos directly in the documentation.</p>
-{% endblock %}
 
-{% block sidebar_nav %}
+        </section>
+
+        <div class="page-layout">
+            <aside class="sidebar surface-card">
+                <h2>On this page</h2>
+                <ul>
+                    
                     <li><a href="#tooltips">Advanced tooltips</a></li>
                     <li><a href="#drag-drop">Drag &amp; drop editor</a></li>
                     <li><a href="#text-editor">Text-based editor</a></li>
                     <li><a href="#automation">Email embedding</a></li>
                     <li><a href="#png">PNG rendering</a></li>
-{% endblock %}
 
-{% block content %}
+                </ul>
+            </aside>
+
+            <div class="content">
+                
                 <section id="tooltips" class="content-section surface-card">
                     <h2>Advanced tooltips</h2>
                     <p>Attach native, custom or click-triggered tooltips to symbols with Opentip while keeping the SBOL blocks unchanged.</p>
                     <div class="example-actions">
-                        <a class="button-secondary" href="{{ repo_url }}/blob/master/examples/advanced_tooltips.html">View source on GitHub</a>
+                        <a class="button-secondary" href="https://github.com/mtripnaux/SBOL-Visual-CSS/blob/master/examples/advanced_tooltips.html">View source on GitHub</a>
                     </div>
                     <div class="preview">
                         <div class="sbol-visual centered">
@@ -58,7 +94,7 @@
                     <h2>Drag &amp; drop construct editor</h2>
                     <p>Compose constructs by dragging parts from an inventory into a sequence container. The example combines SBOL blocks with Dragula for quick experimentation.</p>
                     <div class="example-actions">
-                        <a class="button-secondary" href="{{ repo_url }}/blob/master/examples/drag_and_drop_construct_editor.html">View source on GitHub</a>
+                        <a class="button-secondary" href="https://github.com/mtripnaux/SBOL-Visual-CSS/blob/master/examples/drag_and_drop_construct_editor.html">View source on GitHub</a>
                     </div>
                     <div class="example-inline-preview">
                         <div class="preview drag-drop-demo">
@@ -93,7 +129,7 @@
                     <h2>Text-based construct editor</h2>
                     <p>Define combinatorial assemblies from text, enrich input with part suggestions, then render a full construct view on demand.</p>
                     <div class="example-actions">
-                        <a class="button-secondary" href="{{ repo_url }}/blob/master/examples/text_based_construct_editor.html">View source on GitHub</a>
+                        <a class="button-secondary" href="https://github.com/mtripnaux/SBOL-Visual-CSS/blob/master/examples/text_based_construct_editor.html">View source on GitHub</a>
                     </div>
                     <div class="example-inline-preview">
                         <div class="preview text-editor-demo">
@@ -125,7 +161,7 @@
                     <h2>Email embedding</h2>
                     <p>For email delivery, embed the generated standalone stylesheet directly in the HTML message and reuse the same SBOL markup in the body.</p>
                     <div class="example-actions">
-                        <a class="button-secondary" href="{{ repo_url }}/blob/master/examples/embed_SBOLv_in_html_email.py">View source on GitHub</a>
+                        <a class="button-secondary" href="https://github.com/mtripnaux/SBOL-Visual-CSS/blob/master/examples/embed_SBOLv_in_html_email.py">View source on GitHub</a>
                     </div>
                     <div class="example-inline-preview">
                         <div class="preview">
@@ -145,7 +181,7 @@
                     <h2>PNG rendering</h2>
                     <p>Use an HTML renderer such as <span class="inline-code">wkhtmltoimage</span> to convert SBOL constructs into raster output. The helper function builds the HTML, injects the CSS and crops the result automatically.</p>
                     <div class="example-actions">
-                        <a class="button-secondary" href="{{ repo_url }}/blob/master/examples/render_png_with_wkHTMLtoImage.py">View source on GitHub</a>
+                        <a class="button-secondary" href="https://github.com/mtripnaux/SBOL-Visual-CSS/blob/master/examples/render_png_with_wkHTMLtoImage.py">View source on GitHub</a>
                     </div>
                     <div class="example-inline-preview">
                         <div class="preview">
@@ -153,9 +189,19 @@
                         </div>
                     </div>
                 </section>
-{% endblock %}
 
-{% block scripts %}
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <span>SBOL Visual CSS by Edinburgh Genome Foundry.</span>
+            <a href="https://github.com/mtripnaux/SBOL-Visual-CSS">GitHub repository</a>
+        </div>
+    </footer>
+    
 <link href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' rel='stylesheet' type='text/css'>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
 
@@ -282,4 +328,6 @@ function render() {
     rendering.innerHTML = content;
 }
 </script>
-{% endblock %}
+
+</body>
+</html>
