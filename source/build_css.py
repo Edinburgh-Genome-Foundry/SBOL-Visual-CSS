@@ -67,6 +67,9 @@ def build() -> None:
         "count": len(icons),
         "icons": icons,
     }
+    
+    root_dist_dir.mkdir(parents=True, exist_ok=True)
+    
     icons_json_path.write_text(
         json.dumps(icons_payload, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
