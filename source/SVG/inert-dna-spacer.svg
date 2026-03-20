@@ -1,0 +1,17 @@
+<svg width="450" height="100" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <metadata id="svg_5">image/svg+xml</metadata>
+  <metadata id="svg_4">image/svg+xml</metadata>
+  <g id="svg_9">
+   <line stroke="#000" fill="none" stroke-width="3" x1="0" y1="50" x2="210.5" y2="50" id="svg_2" stroke-linejoin="round" stroke-linecap="square"/>
+   <g id="svg_1">
+    <circle fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#000000" id="svg_3" r="12" cy="50" cx="225"/>
+    <line stroke-width=" 3px" stroke=" rgb(0, 0, 0)" y2="58.455" x2="233.455" y1="41.545" x1="216.545" id="svg_6"/>
+    <line stroke-width=" 3px" stroke=" rgb(0, 0, 0)" y2="41.396" x2="233.604" y1="58.604" x1="216.396" id="svg_8"/>
+   </g>
+   <line stroke="#000" fill="none" stroke-width="3" x1="240" y1="50" x2="450" y2="50" id="svg_7" stroke-linejoin="round" stroke-linecap="square"/>
+  </g>
+ </g>
+
+</svg>

@@ -1,3 +1,7 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg viewBox="-200 0 450 100" style="background-color:#ffffff00" xmlns="http://www.w3.org/2000/svg" width="450" height="100"><path d="M-200 50H4.57m40.99 0h204.57M7.726 58.474h34.549M7.726 41.052h34.549" style="stroke:#000;stroke-width:3;stroke-linejoin:round;fill:none;stroke-linecap:square"/></svg>
+<svg width="450" height="100" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" stroke-linecap="square" fill="none" stroke-linejoin="round" stroke-width="3" stroke="#000" d="m-0.065,50.237l204.57,0m40.99,0l204.57,0m-242.404,8.474l34.549,0m-34.549,-17.422l34.549,0"/>
+ </g>
+</svg>
