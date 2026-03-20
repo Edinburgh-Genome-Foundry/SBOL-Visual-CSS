@@ -691,7 +691,7 @@ pre code {
 
     .reference-table td {
         display: block;
-        padding: 8px 0;
+        padding: clamp(0.75rem, 2vw, 1rem) clamp(0.75rem, 2vw, 1rem);
         text-align: left;
         word-break: break-word;
     }
@@ -701,7 +701,7 @@ pre code {
         font-weight: 700;
         color: var(--heading);
         display: block;
-        margin-bottom: 4px;
+        margin-bottom: 8px;
         font-size: clamp(0.75rem, 1.5vw, 0.85rem);
     }
 }
@@ -709,6 +709,7 @@ pre code {
 @media (min-width: 769px) {
     .reference-table th,
     .reference-table td {
+        padding: clamp(1rem, 2vw, 1.25rem) clamp(1rem, 2vw, 1.5rem);
         border-bottom: 1px solid var(--border);
         text-align: left;
     }
