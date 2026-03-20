@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>SBOL Visual CSS · {{ page_title }}</title>
+    <title>SBOL Visual CSS</title>
     <link rel="icon" href="assets/visual-sbol-css.png" type="image/png" />
     <link rel="stylesheet" href="sbol-visual-standalone.css" />
     <link rel="stylesheet" href="assets/docs.css" />
     <style>
-        /* Amélioration touch pour les appareils mobiles */
         @supports (padding: max(0px)) {
             body {
                 padding-left: max(0px, env(safe-area-inset-left));
@@ -61,7 +60,6 @@
             body.classList.toggle('no-scroll', isOpen);
         });
 
-        // Fermer le menu après un clic sur un lien
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('nav-open');
@@ -70,7 +68,6 @@
             });
         });
 
-        // Fermer le menu au redimensionnement
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 navMenu.classList.remove('nav-open');
