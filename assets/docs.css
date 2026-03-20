@@ -709,7 +709,6 @@ pre code {
 @media (min-width: 769px) {
     .reference-table th,
     .reference-table td {
-        padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1rem, 1.5vw, 1rem);
         border-bottom: 1px solid var(--border);
         text-align: left;
     }
@@ -720,6 +719,12 @@ pre code {
         text-transform: uppercase;
         color: var(--muted);
     }
+}
+
+.reference-table .sbolv {
+    margin: 0 !important;
+    height: 75px !important;
+    min-width: 100px !important;
 }
 
 .reference-table tr:last-child td {
