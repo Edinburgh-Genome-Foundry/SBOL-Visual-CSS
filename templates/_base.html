@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>SBOL Visual CSS · {{ page_title }}</title>
     <link rel="stylesheet" href="sbol-visual-standalone.css" />
     <link rel="stylesheet" href="assets/docs.css" />
+    <style>
+        /* Amélioration touch pour les appareils mobiles */
+        @supports (padding: max(0px)) {
+            body {
+                padding-left: max(0px, env(safe-area-inset-left));
+                padding-right: max(0px, env(safe-area-inset-right));
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="site-header">
@@ -17,7 +26,10 @@
                     <small>Documentation</small>
                 </span>
             </a>
-            <nav class="top-nav">
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            <nav class="top-nav" id="nav-menu">
                 <a{% if active == 'index' %} class="active"{% endif %} href="index.html">Overview</a>
                 <a{% if active == 'getting-started' %} class="active"{% endif %} href="getting-started.html">Getting Started</a>
                 <a{% if active == 'layout-patterns' %} class="active"{% endif %} href="layout-patterns.html">Layout</a>
@@ -37,6 +49,35 @@
             <a href="{{ repo_url }}">GitHub repository</a>
         </div>
     </footer>
+    <script>
+        const menuToggleButton = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('#nav-menu');
+        const body = document.body;
+
+        menuToggleButton.addEventListener('click', function() {
+            const isOpen = navMenu.classList.toggle('nav-open');
+            menuToggleButton.setAttribute('aria-expanded', isOpen);
+            body.classList.toggle('no-scroll', isOpen);
+        });
+
+        // Fermer le menu après un clic sur un lien
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('nav-open');
+                menuToggleButton.setAttribute('aria-expanded', false);
+                body.classList.remove('no-scroll');
+            });
+        });
+
+        // Fermer le menu au redimensionnement
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove('nav-open');
+                menuToggleButton.setAttribute('aria-expanded', false);
+                body.classList.remove('no-scroll');
+            }
+        });
+    </script>
     {% block scripts %}{% endblock %}
 </body>
 </html>
