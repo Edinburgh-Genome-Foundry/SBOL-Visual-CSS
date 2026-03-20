@@ -26,30 +26,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td><code>assembly-scar</code></td><td class="reference-symbol"><div class="sbolv assembly-scar"></div></td></tr>
-                            <tr><td><code>blunt-restriction-site</code></td><td class="reference-symbol"><div class="sbolv blunt-restriction-site"></div></td></tr>
-                            <tr><td><code>cds</code></td><td class="reference-symbol"><div class="sbolv cds"></div></td></tr>
-                            <tr><td><code>engineered-region</code></td><td class="reference-symbol"><div class="sbolv engineered-region"></div></td></tr>
-                            <tr><td><code>five-prime-overhang</code></td><td class="reference-symbol"><div class="sbolv five-prime-overhang"></div></td></tr>
-                            <tr><td><code>five-prime-sticky-restriction-site</code></td><td class="reference-symbol"><div class="sbolv five-prime-sticky-restriction-site"></div></td></tr>
-                            <tr><td><code>insulator</code></td><td class="reference-symbol"><div class="sbolv insulator"></div></td></tr>
-                            <tr><td><code>operator</code></td><td class="reference-symbol"><div class="sbolv operator"></div></td></tr>
-                            <tr><td><code>origin-of-replication</code></td><td class="reference-symbol"><div class="sbolv origin-of-replication"></div></td></tr>
-                            <tr><td><code>poly-a-site</code></td><td class="reference-symbol"><div class="sbolv poly-a-site"></div></td></tr>
-                            <tr><td><code>primer-binding-site</code></td><td class="reference-symbol"><div class="sbolv primer-binding-site"></div></td></tr>
-                            <tr><td><code>promoter</code></td><td class="reference-symbol"><div class="sbolv promoter"></div></td></tr>
-                            <tr><td><code>protease-site</code></td><td class="reference-symbol"><div class="sbolv protease-site"></div></td></tr>
-                            <tr><td><code>protein-stability-element</code></td><td class="reference-symbol"><div class="sbolv protein-stability-element"></div></td></tr>
-                            <tr><td><code>restriction-enzyme-recognition-site</code></td><td class="reference-symbol"><div class="sbolv restriction-enzyme-recognition-site"></div></td></tr>
-                            <tr><td><code>ribonuclease-site</code></td><td class="reference-symbol"><div class="sbolv ribonuclease-site"></div></td></tr>
-                            <tr><td><code>ribosome-entry-site</code></td><td class="reference-symbol"><div class="sbolv ribosome-entry-site"></div></td></tr>
-                            <tr><td><code>rna-stability-element</code></td><td class="reference-symbol"><div class="sbolv rna-stability-element"></div></td></tr>
-                            <tr><td><code>signature</code></td><td class="reference-symbol"><div class="sbolv signature"></div></td></tr>
-                            <tr><td><code>stop-codon</code></td><td class="reference-symbol"><div class="sbolv stop-codon"></div></td></tr>
-                            <tr><td><code>terminator</code></td><td class="reference-symbol"><div class="sbolv terminator"></div></td></tr>
-                            <tr><td><code>three-prime-overhang</code></td><td class="reference-symbol"><div class="sbolv three-prime-overhang"></div></td></tr>
-                            <tr><td><code>three-prime-sticky-restriction-site</code></td><td class="reference-symbol"><div class="sbolv three-prime-sticky-restriction-site"></div></td></tr>
-                            <tr><td><code>user-defined</code></td><td class="reference-symbol"><div class="sbolv user-defined"></div></td></tr>
+                            {% for icon in icons %}
+                            <tr><td><code>{{ icon.name }}</code></td><td class="reference-symbol"><div class="sbolv {{ icon.name }}"></div></td></tr>
+                            {% endfor %}
                         </tbody>
                     </table>                    </div>                </section>
 

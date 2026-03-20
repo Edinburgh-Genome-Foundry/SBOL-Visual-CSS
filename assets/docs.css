@@ -658,8 +658,12 @@ pre code {
     width: 100%;
     border-collapse: collapse;
     font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+}
+
+.reference-table-wrapper {
+    width: 100%;
     overflow-x: auto;
-    display: block;
+    -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width: 768px) {

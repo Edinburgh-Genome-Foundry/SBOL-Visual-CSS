@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import shutil
 from pathlib import Path
 
@@ -16,13 +17,21 @@ def render_templates(repo_root: Path) -> None:
 
     templates_dir = repo_root / "templates"
     dist_dir = repo_root / "dist"
+    icons_json_path = dist_dir / "icons.json"
     
     if not templates_dir.exists():
         raise FileNotFoundError(f"Templates directory not found: {templates_dir}")
 
+    # Load icons data
+    icons_data = {}
+    if icons_json_path.exists():
+        icons_json = json.loads(icons_json_path.read_text(encoding="utf-8"))
+        icons_data = {"icons": icons_json.get("icons", [])}
+
     env = Environment(loader=FileSystemLoader(str(templates_dir)))
     env.globals.update({
-        "repo_url": "https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS"
+        "repo_url": "https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS",
+        **icons_data
     })
     page_templates = sorted(
         template_path
