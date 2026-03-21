@@ -1,0 +1,38 @@
+{% extends "_sidebar-page.html" %}
+{% set page_title = "About" %}
+{% set active = "about" %}
+
+{% block page_intro %}
+            <p class="mini-kicker">About</p>
+            <h1>About SBOL Visual CSS</h1>
+            <p>Discover the project's history, coverage, and the technology behind it.</p>
+{% endblock %}
+
+{% block sidebar_nav %}
+                    <li><a href="#project-history">Project History</a></li>
+                    <li><a href="#glyphs-coverage">Glyphs Coverage</a></li>
+                    <li><a href="#dependencies">Dependencies</a></li>
+                    <li><a href="#contributing">Contributing</a></li>
+{% endblock %}
+
+{% block content %}
+                <section id="project-history" class="content-section surface-card">
+                    <h2>Project History</h2>
+                    <p>The library was originally created by <a href="https://github.com/Zulko" target="_blank">Zulko</a> at the <a href="http://www.genomefoundry.org" target="_blank">Edinburgh Genome Foundry</a> about 10 years ago. The project has since been continued and maintained by <a href="https://github.com/mtripnaux" target="_blank">mtripnaux</a> and the synthetic biology community.</p>
+                </section>
+
+                <section id="glyphs-coverage" class="content-section surface-card">
+                    <h2>Glyphs Coverage</h2>
+                    <p>SBOL Visual CSS currently provides {{ icons_count }} symbols out of the <a href="https://sbolstandard.org/visual-glyphs/" target="_blank">40 standard SBOL visual glyphs</a>. The glyphs are mostly adapted from the standard SVGs, with some hand-made additions.</p>
+                </section>
+
+                <section id="dependencies" class="content-section surface-card">
+                    <h2>Dependencies</h2>
+                    <p>SBOL Visual CSS requires only CSS and SVG support in the browser. The documentation site is built using <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja2</a>, a powerful and modern templating engine for <a href="https://www.python.org/">Python</a>. This allows anyone generating the static HTML documentation while keeping icon metadata and counts dynamically updated at build time.</p>
+                </section>
+
+                <section id="contributing" class="content-section surface-card">
+                    <h2>Contributing</h2>
+                    <p>Contributions to SBOL Visual CSS are welcome! If you want to contribute, please check the <a href="https://github.com/Edinburgh-Genome-Foundry/HowTo/blob/master/EGF/CONTRIBUTING.md" target="_blank">contribution guidelines</a> and the project open issues. The code is currently released under the <a href="{{ repo_url }}/blob/master/LICENSE.md">MIT License</a>.</p>
+                </section>
+{% endblock %}
