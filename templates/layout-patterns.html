@@ -20,7 +20,7 @@
                 <section id="centering" class="content-section surface-card">
                     <h2>Centering</h2>
                     <p>Add <span class="inline-code">centered</span> to the main container when you want wrapped lines to stay centered. Beware that all lines will be centered, even if they contain only a single symbol (e.g. at the end of a line wrap).</p>
-                    <pre><code>&lt;div class="sbol-visual centered"&gt;
+                    <pre><code class="language-html">&lt;div class="sbol-visual centered"&gt;
     &lt;div class="sbolv promoter"&gt;P1&lt;/div&gt;
     &lt;div class="sbolv cds"&gt;bla&lt;/div&gt;
     &lt;div class="sbolv terminator"&gt;t2&lt;/div&gt;
@@ -37,7 +37,7 @@
                 <section id="width" class="content-section surface-card">
                     <h2>Adaptive width</h2>
                     <p>Symbols expand to fit their captions. Long text wraps automatically, and full constructs wrap onto several lines when needed.</p>
-                    <pre><code>&lt;div class="sbol-visual centered"&gt;
+                    <pre><code class="language-html">&lt;div class="sbol-visual centered"&gt;
     &lt;div class="sbolv promoter"&gt;P1&lt;/div&gt;
     &lt;div class="sbolv ribosome-entry-site"&gt;rbs 1&lt;/div&gt;
     &lt;div class="sbolv cds"&gt;some really very long caption that you could
@@ -57,7 +57,7 @@
                 <section id="sizing" class="content-section surface-card">
                     <h2>Sizing</h2>
                     <p>The symbol size is driven by the height of each <span class="inline-code">sbolv</span> block. A common pattern is to add a custom modifier class to the container.</p>
-                    <pre><code>.sbol-visual.small .sbolv {
+                    <pre><code class="language-html">.sbol-visual.small .sbolv {
     height: 80px;
     min-width: 35px;
 }</code></pre>
@@ -73,7 +73,7 @@
                 <section id="inline" class="content-section surface-card">
                     <h2>Inline symbols</h2>
                     <p>Use inline layouts inside prose with <span class="inline-code">span</span> nodes. You can apply <span class="inline-code">inline</span> either to each symbol, or once on a full <span class="inline-code">sbol-visual</span> container.</p>
-                    <pre><code>An expression unit (&lt;span class="sbol-visual inline"&gt;
+                    <pre><code class="language-html">An expression unit (&lt;span class="sbol-visual inline"&gt;
     &lt;span class="sbolv promoter"&gt;&lt;/span&gt;
     &lt;span class="sbolv cds"&gt;&lt;/span&gt;
     &lt;span class="sbolv terminator"&gt;&lt;/span&gt;
@@ -99,7 +99,7 @@ and a terminator (&lt;span class="sbolv inline terminator"&gt;&lt;/span&gt;).
                 <section id="inverted" class="content-section surface-card">
                     <h2>Inverted theme</h2>
                     <p>For dark backgrounds, add the <span class="inline-code">inverted</span> class to a container or an individual symbol.</p>
-                    <pre><code>&lt;div class="sbol-visual centered inverted"&gt;
+                    <pre><code class="language-html">&lt;div class="sbol-visual centered inverted"&gt;
     &lt;div class="sbolv promoter"&gt;P1&lt;/div&gt;
     &lt;div class="sbolv cds"&gt;bla&lt;/div&gt;
     &lt;div class="sbolv terminator"&gt;t2&lt;/div&gt;

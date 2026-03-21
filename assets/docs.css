@@ -59,11 +59,6 @@ img {
     max-width: 100%;
 }
 
-code,
-pre {
-    font-family: "JetBrains Mono", monospace;
-}
-
 .page-shell {
     width: min(var(--content-width), calc(100% - 32px));
     margin: 0 auto;
@@ -541,17 +536,36 @@ pre {
     overflow-x: auto;
     border-radius: 14px;
     border: 1px solid #1e293b;
-    background: #0f172a;
-    color: #e5eefb;
+	color: #23272e;
+	background: #f7f8fa;
+	font-family: monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.6;
+	tab-size: 4;
+	hyphens: none;
+	border-radius: var(--radius-md);
+	box-shadow: none;
+	text-shadow: none;
+	margin: 0 !important;
     line-height: 1.6;
-    font-size: clamp(0.8rem, 1vw, 0.9rem);
     -webkit-overflow-scrolling: touch;
+    padding: 0.9em !important;
+	background: #f7f8fa !important;
+	border: 1px solid #e3e6eb !important;
+    margin-bottom: 0.7em !important;
 }
 
 pre code {
     padding: 0;
     background: transparent;
     color: inherit;
+	border: none;
+	outline: none;
 }
 
 .preview {
