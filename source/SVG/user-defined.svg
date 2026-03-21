@@ -1,18 +1,96 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg viewBox="-200 0 450 100" style="background-color:#ffffff00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"	x="0px" y="0px" width="450px" height="100px" >
-  <defs>
-    <style type="text/css">
-    <![CDATA[
-      path,circle,polygon {
-        stroke:#000000;
-        stroke-width: 3;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        fill: none
-      }]]>
-	</style>
-  </defs><path d="M -200 50 L 250 50"/>
-
-  <path d="M 5 40 L 5 60 L 45 60 L 45 40 Z" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="450.00000000000006"
+   height="100.00000000000001"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="user-defined.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="3.94"
+     inkscape:cx="224.8731"
+     inkscape:cy="49.873096"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg_12" />
+  <g
+     id="g1">
+    <title
+       id="title1">Layer 1</title>
+    <metadata
+       id="svg_5">image/svg+xml</metadata>
+    <metadata
+       id="svg_4">image/svg+xml</metadata>
+    <metadata
+       id="svg_11">image/svg+xml</metadata>
+    <g
+       stroke="null"
+       id="svg_12">
+      <line
+         stroke="#000"
+         stroke-linecap="square"
+         stroke-linejoin="round"
+         id="svg_2"
+         y2="50"
+         x2="200.52507"
+         y1="50"
+         stroke-width="3"
+         fill="none" />
+      <line
+         stroke="#000"
+         stroke-linecap="square"
+         stroke-linejoin="round"
+         id="svg_7"
+         y2="50"
+         x2="450"
+         y1="50"
+         x1="249.41066"
+         stroke-width="3"
+         fill="none" />
+      <path
+         stroke="#000000"
+         id="svg_9"
+         d="m224.80399,28.41888l22.5615,21.77722l-22.5615,21.77722l-22.5615,-21.77722l22.5615,-21.77722z"
+         opacity="undefined"
+         stroke-width="3"
+         fill="none" />
+      <text
+         stroke="null"
+         stroke-width="1px"
+         fill="#000000"
+         text-anchor="middle"
+         font-family="Arial"
+         font-size="20px"
+         font-weight="bold"
+         font-style="normal"
+         id="svg_6"
+         y="57.771206"
+         x="232.66037"
+         xml:space="preserve"
+         style="white-space:pre;inline-size:15.912;display:inline"
+         transform="translate(-7.8680203,-0.25380711)"><tspan
+           x="232.66037"
+           y="57.771206"
+           id="tspan1">?<tspan
+   y="57.771206"
+   id="tspan2"> </tspan></tspan></text>
+    </g>
+  </g>
 </svg>

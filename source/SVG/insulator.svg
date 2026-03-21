@@ -1,3 +1,10 @@
-<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg viewBox="-200 0 450 100" style="background-color:#ffffff00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"	x="0px" y="0px" width="450px" height="100px" >  <defs>    <style type="text/css">    <![CDATA[      path,circle {        stroke:#000000;        stroke-width: 3;        stroke-linecap: round;        stroke-linejoin: round;        fill: white      }]]>	</style>  </defs><path d="M -200 50 L 250 50"/>
-  
-  <path d="M 10 65 L 40 65 L 40 35 L 10 35 L 10 65 Z" />  <path d="M 17 58 L 33 58 L 33 42 L 17 42 L 17 58 Z" /></svg>
+<svg width="450" height="99.99999999999999" xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve">
+ <g>
+  <title>Layer 1</title>
+  <path d="m241.01725,50l207.66476,0" stroke-width="3" stroke-linecap="square" stroke-linejoin="square" fill="white" id="svg_1" stroke="#000000"/>
+  <path d="m210,65l30,0l0,-30l-30,0l0,30z" stroke-width="3" stroke-linecap="square" stroke-linejoin="square" fill="#000000" id="svg_2" stroke="#000000" fill-opacity="0"/>
+  <path d="m217,58l16,0l0,-16l-16,0l0,16z" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="square" fill="#000000" id="svg_3" fill-opacity="0"/>
+  <path d="m0,50l207.66477,0" stroke-width="3" stroke-linecap="square" stroke-linejoin="square" fill="white" id="svg_4" stroke="#000000"/>
+ </g>
+
+</svg>

@@ -1,2 +1,11 @@
-<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg viewBox="-200 0 450 100" style="background-color:#ffffff00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"	x="0px" y="0px" width="450px" height="100px" >  <defs>    <style type="text/css">    <![CDATA[      path,circle {        stroke:#000000;        stroke-width: 3;        stroke-linecap: round;        stroke-linejoin: round;        fill: none      }]]>	</style>  </defs><path d="M -200 50 L 250 50"/>
-	<circle cx="25" cy="50" r="12"  /></svg>
+<svg width="450" height="99.99999999999999" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <metadata id="svg_5">image/svg+xml</metadata>
+  <metadata id="svg_4">image/svg+xml</metadata>
+  <line stroke="#000" stroke-linecap="square" stroke-linejoin="round" id="svg_2" y2="50" x2="209.33188" y1="50" x1="0" stroke-width="3" fill="none"/>
+  <line stroke="#000" stroke-linecap="square" stroke-linejoin="round" id="svg_7" y2="50" x2="450" y1="50" x1="241.37431" stroke-width="3" fill="none"/>
+  <ellipse stroke="#000" ry="14.2857" rx="14.2857" id="svg_1" cy="50" cx="224.99999" stroke-width="3" fill="none"/>
+ </g>
+
+</svg>

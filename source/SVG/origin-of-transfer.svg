@@ -1,0 +1,15 @@
+<svg width="450.00000000000006" height="99.99999999999999" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <metadata id="svg_5">image/svg+xml</metadata>
+  <metadata id="svg_4">image/svg+xml</metadata>
+  <line stroke="#000" stroke-linecap="square" stroke-linejoin="round" id="svg_2" y2="50" x2="209.33188" y1="50" stroke-width="3" fill="none"/>
+  <line stroke="#000" stroke-linecap="square" stroke-linejoin="round" id="svg_7" y2="50" x2="450" y1="50" x1="241.37431" stroke-width="3" fill="none"/>
+  <metadata stroke="null" id="svg_22">image/svg+xml</metadata>
+
+  <circle stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" fill="none" id="svg_9" r="14.04261" cy="50.14654" cx="225.98741"/>
+  <line stroke="#000000" stroke-linecap="round" stroke-linejoin="round" id="svg_24" y2="32.55531" x2="243.86311" y1="50.33613" x1="226.12606" stroke-width="3" fill="none"/>
+  <path transform="rotate(43 243.937 32.4491)" stroke="#000000" id="svg_25" d="m242.33662,33.62552l1.60086,-2.35294l1.60086,2.35294l-3.20172,0z" stroke-width="3" fill="none"/>
+ </g>
+
+</svg>
