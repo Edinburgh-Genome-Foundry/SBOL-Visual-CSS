@@ -26,7 +26,10 @@ def render_templates(repo_root: Path) -> None:
     icons_data = {}
     if icons_json_path.exists():
         icons_json = json.loads(icons_json_path.read_text(encoding="utf-8"))
-        icons_data = {"icons": icons_json.get("icons", [])}
+        icons_data = {
+            "icons": icons_json.get("icons", []),
+            "icons_count": icons_json.get("count", 0)
+        }
 
     env = Environment(loader=FileSystemLoader(str(templates_dir)))
     env.globals.update({
