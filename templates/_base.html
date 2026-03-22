@@ -77,6 +77,41 @@
                 body.classList.remove('no-scroll');
             }
         });
+
+        const mobileTocToggle = document.querySelector('#mobile-toc-toggle');
+        const sidebar = document.querySelector('#sidebar');
+        const sidebarOverlay = document.querySelector('#sidebar-overlay');
+        const sidebarClose = document.querySelector('#sidebar-close');
+
+        if (mobileTocToggle && sidebar && sidebarOverlay) {
+            const closeSidebar = () => {
+                sidebar.classList.remove('sidebar-open');
+                sidebarOverlay.classList.remove('active');
+                body.classList.remove('no-scroll');
+            };
+
+            mobileTocToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('sidebar-open');
+                sidebarOverlay.classList.toggle('active');
+                body.classList.toggle('no-scroll');
+            });
+
+            sidebarOverlay.addEventListener('click', closeSidebar);
+
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', closeSidebar);
+            }
+
+            sidebar.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeSidebar);
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 960) {
+                    closeSidebar();
+                }
+            });
+        }
     </script>
     <script src="assets/prism.js"></script>
     {% block scripts %}{% endblock %}
