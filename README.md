@@ -24,23 +24,23 @@ The project now uses two Python entry points depending on what you want to gener
 ### Library bundle
 
 ```bash
-python source/build.py
+python source/build_css.py
 ```
 
 This command will:
 
-- compile all SVG icons from `source/SVG/` into `source/icons.json`
+- compile all SVG icons from `source/SVG/` into `dist/icons.json`
 - generate the standalone stylesheet bundle in `dist/sbol-visual-standalone.css`
 
 ### Documentation site
 
 ```bash
-python source/docs.py
+python source/build_docs.py
 ```
 
 This command will:
 
-- run the library build from `source/build.py`
+- run the library build from `source/build_docs.py`
 - copy the stylesheet bundle into `docs/dist/`
 - sync the example files into `docs/examples/`
 - render the Jinja2 templates from `docs/templates/` into `docs/*.html`
@@ -51,6 +51,7 @@ If Jinja2 is not installed yet, install it with:
 pip install jinja2
 ```
 
+## License = MIT
 
 SBOL-visual CSS was originally written at the [Edinburgh Genome Foundry](http://genomefoundry.org/) by [Zulko](https://github.com/Zulko).
-The code is released on [Github](https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS) under the MIT License (Copyright Edinburgh Genome Foundry), everyone is welcome to contribute.
+The code is released on [Github](https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS) under the MIT License (Copyright  Edinburgh Genome Foundry, University of Edinburgh), everyone is welcome to contribute.
