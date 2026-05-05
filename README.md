@@ -3,7 +3,7 @@
 SBOL Visual CSS (see [full documentation online](http://edinburgh-genome-foundry.github.io/SBOL-Visual-CSS/) or in [docs/index.html](docs/index.html))
 is a pure-CSS library to easily display schematic DNA sequences in the Visual SBOL standard using a simple HTML syntax:
 
-```
+```css
 <div class="sbol-visual centered">
     <div class="sbolv promoter">p1</div>
     <div class="sbolv cds">lac</div>
@@ -54,4 +54,4 @@ pip install jinja2
 ## License = MIT
 
 SBOL-visual CSS was originally written at the [Edinburgh Genome Foundry](http://genomefoundry.org/) by [Zulko](https://github.com/Zulko).
-The code is released on [Github](https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS) under the MIT License (Copyright  Edinburgh Genome Foundry, University of Edinburgh), everyone is welcome to contribute.
+The code is released on [Github](https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS) under the MIT License (Copyright 2016 Edinburgh Genome Foundry, University of Edinburgh), everyone is welcome to contribute.
