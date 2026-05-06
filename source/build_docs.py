@@ -12,7 +12,8 @@ TEMPLATES_DIR = REPO_DIR / "templates"
 DIST_DIR = REPO_DIR / "dist"
 ASSETS_SRC = REPO_DIR / "assets"
 ICONS_JSON_PATH = DIST_DIR / "icons.json"
-REPO_URL = "https://github.com/mtripnaux/SBOL-Visual-CSS"
+REPO_URL = "https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS"
+
 
 def load_icons_data() -> dict:
     """Load icon metadata from the generated icons.json file."""
@@ -21,7 +22,7 @@ def load_icons_data() -> dict:
         icons_json = json.loads(ICONS_JSON_PATH.read_text(encoding="utf-8"))
         icons_data = {
             "icons": icons_json.get("icons", []),
-            "icons_count": icons_json.get("count", 0)
+            "icons_count": icons_json.get("count", 0),
         }
     return icons_data
 
@@ -41,11 +42,8 @@ def render_templates() -> None:
     icons_data = load_icons_data()
 
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
-    env.globals.update({
-        "repo_url": REPO_URL,
-        **icons_data
-    })
-    
+    env.globals.update({"repo_url": REPO_URL, **icons_data})
+
     # non-partial
     page_templates = sorted(
         template_path
@@ -71,7 +69,7 @@ def sync_assets() -> None:
 def build_docs() -> None:
     """Build the complete documentation site."""
     build_css_bundle()
-    
+
     # Sync assets and render templates
     sync_assets()
     render_templates()
