@@ -51,7 +51,16 @@ If Jinja2 is not installed yet, install it with:
 pip install jinja2
 ```
 
+## Versioning
+
+SBOL Visual CSS uses the [semantic versioning](https://semver.org) scheme.
+
+Version = **`0.2.0`**
+
+This library implements the [SBOL Visual 3.0 Standard](https://sbolstandard.org/visual-glyphs/).
+
+
 ## License = MIT
 
 SBOL-visual CSS was originally written at the [Edinburgh Genome Foundry](http://genomefoundry.org/) by [Zulko](https://github.com/Zulko).
-The code is released on [Github](https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS) under the MIT License (Copyright 2016 Edinburgh Genome Foundry, University of Edinburgh), everyone is welcome to contribute.
+The code is released on [Github](https://github.com/Edinburgh-Genome-Foundry/SBOL-Visual-CSS) under the MIT License (Copyright 2016 Edinburgh Genome Foundry, University of Edinburgh). Everyone is welcome to contribute!
